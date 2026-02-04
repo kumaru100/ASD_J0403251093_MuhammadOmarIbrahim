@@ -78,3 +78,7 @@ with open("data_mahasiswa.txt", "r", encoding="utf-8") as file:
         }
 print("=== Data Mahasiswa dalam Dictionary")
 print(data_dict)
+
+#===============================================
+#Test commit biar ga keliatan folder from upload
+#===============================================
