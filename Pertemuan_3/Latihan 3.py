@@ -67,3 +67,4 @@ if __name__ == "__main__":
         print(f"Elemen {cari} ditemukan dalam Doubly Linked List.")
     else:
         print(f"Elemen {cari} TIDAK ditemukan dalam Doubly Linked List.")
+        #tes
