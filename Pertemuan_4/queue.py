@@ -18,6 +18,9 @@ class QueueLL:
         self.front = None #Node paling depan
         self.rear = None #Node paling belakang
     
+    def is_empty(self):
+        return self.front is None
+    
     def enqueue(self, data):
         #Menambah data di belakang (tail)
         nodeBaru = Node(data)
@@ -31,3 +34,36 @@ class QueueLL:
         self.rear.next = nodeBaru
         self.rear = nodeBaru
         
+    def dequeue(self):
+        #menghapus data dari depan (head)
+
+        #1)peek/lihat data paling depan
+        data_terhapus = self.front.data
+
+        #2)geser front ke node berikutnya
+        self.front = self.front.next
+
+        #3)Jika setelah geser front menjadi None, berarti queue kosong
+        #maka rear juga None
+        if self.front is None:
+            self.rear = None
+
+    
+    def tampilkan(self):
+        #Menampilkan isi queue dari front ke rear
+        current = self.front
+        print("Front", end=" -> ")
+        while current is not None:
+            print(current.data, end="->")
+            current = current.next
+        print("None - Rear di node terakhir")
+
+#Instantiasi objek class queuell
+q=QueueLL()
+q.enqueue("A")
+q.enqueue("B")
+q.enqueue("C")
+q.tampilkan()
+
+q.dequeue()
+q.tampilkan()
