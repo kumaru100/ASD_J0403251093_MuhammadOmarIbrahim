@@ -31,7 +31,7 @@ while current is not None:
 # Implementasi Dasar : Linked List + Insert Awal
 #================================================
 
-class LinkedList:
+class LinkedList: #class implementasi stack
     def __init__(self):
         self.head = None #Awalnya kosong
 
