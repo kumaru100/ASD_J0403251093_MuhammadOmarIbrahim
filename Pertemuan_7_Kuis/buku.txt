@@ -1,0 +1,6 @@
+A1,Haha,100000
+A2,Hehe,40000
+A3,hoho,50000
+A4,hihi,20000
+A5,hehe,105000
+a2,misael,10000
