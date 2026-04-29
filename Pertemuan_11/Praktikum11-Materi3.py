@@ -1,0 +1,41 @@
+#=================================================
+# Nama : Muhammad Omar Ibrahim
+#Implementasi dfs
+#=================================================
+#Struktur data untuk membuat antrian, kita gunakan dari library collections bawaan python
+from collections import deque
+
+#representasi graph
+graph ={
+    'A': ['B', 'C'],
+    'B': ['D', 'E'],
+    'C': ['F', 'G'],
+    'D':[],
+    'E':[],
+    'F':[],
+    'G':[],
+        
+}
+
+def dfs(graph, node, visited):
+    #Fungsi untuk melakukan penelusuran graph menggunakan DFS
+    #graph : dictionary yang mentimpan graph
+    #node: menyimpan node yang sedang dikunjungi
+    #Visited : Menyimpan node yang sudah dikunjungi
+
+    #Tandai node saat ini udah dikunjungi
+    visited.add(node)
+    
+
+    #Tampilkan node yang sedang ddikunjungi
+    print(node, end=" ")
+    for neighbor in graph[node]:
+        #Jika tetangga belum pernah dikunjungi
+        if neighbor not in visited:
+            dfs(graph, neighbor, visited)
+
+#Set visited
+visited=set()
+
+#Menjalankan data 
+dfs(graph,"A",visited)

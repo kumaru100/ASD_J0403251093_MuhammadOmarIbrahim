@@ -8,9 +8,13 @@ from collections import deque
 #representasi graph
 graph ={
     'A': ['B', 'C'],
-    'B': ['A', 'D'],
-    'C': ['A', 'D'],
-    'D': ['B', 'C']
+    'B': ['D', 'E'],
+    'C': ['F', 'G'],
+    'D':[],
+    'E':[],
+    'F':[],
+    'G':[],
+        
 }
 
 def bfs(graph,start):
@@ -33,6 +37,9 @@ def bfs(graph,start):
     while queue:
         node = queue.popleft()
 
+        #Tampilkan node yang sedang dikunjungi
+        print(node, end=' ')
+
         #Periksa semua tetangga dari node yang diambil:
         for neighbor in graph[node]:
             #Jika tetangga belum dikunjungi
@@ -41,3 +48,6 @@ def bfs(graph,start):
                 visited.add(neighbor)
                 #Masukkan tetangga ke queue untuk diproses
                 queue.append(neighbor)
+
+#Bfs dari node A
+bfs(graph,'A')
