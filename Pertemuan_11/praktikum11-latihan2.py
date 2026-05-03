@@ -1,22 +1,22 @@
-graph = { 
-'A': ['B', 'C'], 
-'B': ['D', 'E'], 
-'C': ['F'], 
-'D': [], 
-'E': [], 
-'F': [] 
+graph = {  # representasi graph dengan adjacency list
+'A': ['B', 'C'],  # tetangga langsung dari A
+'B': ['D', 'E'],  # tetangga langsung dari B
+'C': ['F'],  # tetangga langsung dari C
+'D': [],  # D tidak memiliki tetangga
+'E': [],  # E tidak memiliki tetangga
+'F': []  # F tidak memiliki tetangga
 } 
 
 def dfs(graph, node, visited): 
-    visited.add(node) 
-    print(node, end=" ") 
+    visited.add(node)  # menandai node sebagai sudah dikunjungi
+    print(node, end=" ")  # menampilkan node saat ini
 
-    for neighbor in graph[node]: 
-        if neighbor not in visited: 
-            dfs(graph, neighbor, visited) 
-visited = set() 
-print("DFS dari A:") 
-dfs(graph, 'A', visited)
+    for neighbor in graph[node]:  # iterasi setiap tetangga dari node
+        if neighbor not in visited:  # memastikan tidak ada node yang dikunjungi ulang
+            dfs(graph, neighbor, visited)  # telusuri lebih dalam secara rekursif
+visited = set()  # menyimpan daftar node yang sudah dikunjungi
+print("DFS dari A:")  # penanda output traversal DFS
+dfs(graph, 'A', visited)  # mulai traversal dari node A
 
 #Pertanyaan Analisis 
 #1. Mengapa DFS masuk ke node terdalam terlebih dahulu?  
