@@ -12,7 +12,7 @@ def dfs(graph, node, visited):
     print(node, end=" ")  # menampilkan node saat ini
 
     for neighbor in graph[node]:  # iterasi setiap tetangga dari node
-        if neighbor not in visited:  # memastikan tidak ada node yang dikunjungi ulang
+        if neighbor not in visited:  # hanya telusuri tetangga yang belum dikunjungi
             dfs(graph, neighbor, visited)  # telusuri lebih dalam secara rekursif
 visited = set()  # menyimpan daftar node yang sudah dikunjungi
 print("DFS dari A:")  # penanda output traversal DFS
