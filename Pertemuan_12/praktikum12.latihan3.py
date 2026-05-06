@@ -43,7 +43,7 @@ print("Jarak terpendek dari node A:")
 for node, distance in hasil.items():
     print(node, "=", distance)
 
-# Jawaban Analisis: 
+# Pertanyaan Analisis: 
 # 1. Berapa bobot langsung dari A ke B? 
 # 2. Berapa total bobot jalur A -> C -> B? 
 # 3. Jalur mana yang menghasilkan jarak lebih kecil menuju B? 

@@ -34,7 +34,7 @@ for lokasi, jarak in hasil.items():
     print(lokasi, "=", jarak, "menit")
 
 
-# Jawaban Analisis: 
+# Pertanyaan Analisis: 
 # 1. Lokasi mana yang paling dekat dari Gerbang? 
 # 2. Berapa waktu tempuh terpendek dari Gerbang ke Aula? 
 # 3. Apakah jalur langsung selalu menghasilkan jarak paling kecil? Jelaskan. 

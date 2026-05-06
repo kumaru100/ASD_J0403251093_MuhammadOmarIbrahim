@@ -55,7 +55,7 @@ print("Jarak terpendek dari node A:")
 for node, distance in hasil.items():
     print(node, "=", distance)
 
-# Jawaban Analisis: 
+# Pertanyaan Analisis: 
 # 1. Berapa jarak terpendek dari A ke B? 
 # 2. Berapa jarak terpendek dari A ke C? 
 # 3. Berapa jarak terpendek dari A ke D? 

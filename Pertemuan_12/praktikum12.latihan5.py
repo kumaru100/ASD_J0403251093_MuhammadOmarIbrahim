@@ -62,7 +62,7 @@ for kota, jarak in hasil.items():
     print(f"{start_node} -> {kota} = {jarak}")
 
 
-# Jawaban Analisis: 
+# Pertanyaan Analisis: 
 # 1. Node awal yang digunakan apa? 
 # 2. Node mana yang memiliki jarak paling kecil dari node awal? 
 # 3. Node mana yang memiliki jarak paling besar dari node awal? 

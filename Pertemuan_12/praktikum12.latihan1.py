@@ -29,7 +29,7 @@ if jalur_1 < jalur_2:
 else: 
     print("Jalur terpendek adalah A -> C -> D") 
 
-# Jawaban Analisis: 
+# Pertanyaan Analisis: 
 # 1. Berapa total bobot jalur A -> B -> D? 
 # 2. Berapa total bobot jalur A -> C -> D? 
 # 3. Jalur mana yang dipilih sebagai jalur terpendek? 
