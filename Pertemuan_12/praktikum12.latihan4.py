@@ -68,4 +68,4 @@ for lokasi, jarak in hasil.items():
 # 3. Tidak selalu. Contoh: Gerbang -> Aula langsung tidak ada,
 #    jalur terpendek justru lewat beberapa node dengan total bobot lebih kecil
 # 4. Karena semua bobot (waktu tempuh) bernilai positif,
-#    sehingga Dijkstra bisa bekerja optimal dan efisien
+#    sehingga Dijkstra bisa bekerja optimal dan efisien.
