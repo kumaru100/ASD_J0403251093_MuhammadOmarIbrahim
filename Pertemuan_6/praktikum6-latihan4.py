@@ -1,3 +1,6 @@
+# Nama : Muhammad Omar Ibrahim
+# NIM : J0403251093
+
 def merge_sort(data):
     if len(data) <= 1:
         return data

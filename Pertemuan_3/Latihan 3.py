@@ -1,3 +1,6 @@
+# Nama : Muhammad Omar Ibrahim
+# NIM : J0403251093
+
 class Node:
     def __init__(self, data):
         self.data = data

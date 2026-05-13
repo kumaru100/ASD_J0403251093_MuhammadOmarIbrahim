@@ -1,5 +1,6 @@
 #=================================================
 # Nama : Muhammad Omar Ibrahim
+# NIM : J0403251093
 #Implementasi dfs
 #=================================================
 #Struktur data untuk membuat antrian, kita gunakan dari library collections bawaan python

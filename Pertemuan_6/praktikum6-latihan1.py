@@ -1,3 +1,6 @@
+# Nama : Muhammad Omar Ibrahim
+# NIM : J0403251093
+
 def insertion_sort(data):
     # Loop dari elemen kedua sampai terakhir
     for i in range(1, len(data)):

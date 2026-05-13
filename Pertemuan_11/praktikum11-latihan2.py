@@ -1,3 +1,6 @@
+# Nama : Muhammad Omar Ibrahim
+# NIM : J0403251093
+
 graph = { 
 'A': ['B', 'C'], 
 'B': ['D', 'E'], 

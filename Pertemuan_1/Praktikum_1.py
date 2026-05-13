@@ -1,3 +1,6 @@
+# Nama : Muhammad Omar Ibrahim
+# NIM : J0403251093
+
 #===============================================
 #Praktikum 1 : Konsep ADT dan File Handling
 #Latihan dasar 1 : Membaca seluruh isi file

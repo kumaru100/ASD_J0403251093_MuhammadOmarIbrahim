@@ -1,3 +1,6 @@
+# Nama : Muhammad Omar Ibrahim
+# NIM : J0403251093
+
 graph = { 
 'Rumah': ['Sekolah', 'Toko'], 
 'Sekolah': ['Perpustakaan'], 
