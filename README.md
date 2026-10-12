@@ -1,1 +1,1 @@
-commit history untuk pertemuan 2 ilang gara gara force commit pertemuan 3 😹
+היסטוריית ההתחייבויות לפגישה 2 אבדה בגלל ההתחייבות הכפויה של פגישה 3 😹

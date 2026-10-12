@@ -1,44 +1,44 @@
 #=================================================
-# Nama : Muhammad Omar Ibrahim
-# NIM : J0403251093
-# Latihan 5: Membuat binary search tree
+# שם : Muhammad Omar Ibrahim
+# מספר סטודנט : J0403251093
+# תרגיל 5: צור עץ חיפוש בינארי
 #=================================================
 class Node:
     def __init__(self,data):
-        self.data = data      # Isi node
-        self.left = None      # Child kiri
-        self.right = None     # Child kanan
+        self.data = data      # מלא את הצמתים
+        self.left = None      # ילד עזב
+        self.right = None     # ילד נכון
 
-#Membuat fungsi inorder : left -> root -> right
+#צור פונקציית סדר: שמאל -> שורש -> ימין
 def postorder(node):
     if node is not None:
-        postorder(node.left)        # Kunjungi kiri
-        postorder(node.right)       # Kunjungi kanan
-        print(node.data, end=" ")  # Kunjungi node
+        postorder(node.left)        # בקר משמאל
+        postorder(node.right)       # בקר נכון
+        print(node.data, end=" ")  # בקר בצמתים
 
 
-#Membuat tree
-root = Node('A')          # Root tree
+#צור עץ
+root = Node('A')          # עץ שורש
 
-#membuat child level 1
-root.left = Node('B')     # Anak kiri root
-root.right = Node('C')    # Anak kanan root
+#צור ילד רמה 1
+root.left = Node('B')     # שורש ילד שמאל
+root.right = Node('C')    # הילד הנכון של שורש
 
-#membuat child level 2
-root.left.left = Node('D')   # Anak kiri B
-root.left.right = Node('E')  # Anak kanan B
+#צור ילד רמה 2
+root.left.left = Node('D')   # השאיר ילד ב
+root.left.right = Node('E')  # הילד הנכון של ב'
 
-#Membuat child Level 3
-root.left.left.left = Node('F')  # Anak kiri D
+#צור ילד ברמה 3
+root.left.left.left = Node('F')  # שמאל ילד ד
 
 
-print("Hasil tranversal inorder: ")  # Judul hasil
-postorder(root)                       # Jalankan postorder
+print('תוצאות רוחביות לא מסודרות:')  # כותרת התוצאה
+postorder(root)                       # בצע הזמנה לפוסט
 
-#Penjelasan:
-#1. Baca cabang kiri terlebih dahulu.
-#2. Lalu baca cabang kanan.
-#3. Terakhir baca node sekarang.
+#הסבר:
+#1. קרא תחילה את הענף השמאלי.
+#2. לאחר מכן קרא את הענף הנכון.
+#3. לבסוף קרא את הצומת הנוכחי.
 
-# Cara kerja: postorder memproses seluruh anak kiri, lalu anak kanan, baru node induk.
-# Pola ini cocok saat data induk baru boleh diproses setelah semua turunannya selesai.
+# איך זה עובד: הזמנה לאחר עיבוד מעבד את כל הילדים השמאליים, ואז הילדים הימניים, ואז צומת האב.
+# דפוס זה מתאים כאשר נתוני הורה חדשים עשויים להיות מעובדים לאחר השלמת כל הילדים.

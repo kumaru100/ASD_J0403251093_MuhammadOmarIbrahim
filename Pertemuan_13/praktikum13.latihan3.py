@@ -1,7 +1,7 @@
-# Nama : Muhammad Omar Ibrahim
-# NIM : J0403251093
-# Kelas : TPL B1
-# Praktikum 13 - Graph III: Spanning Tree
+# שם : Muhammad Omar Ibrahim
+# מספר סטודנט : J0403251093
+# כיתה : TPL B1
+# מעשי 13 - גרף III: עץ משתרע
 
 
 import heapq
@@ -41,25 +41,25 @@ def prim(graph, start):
 
 mst, total = prim(graph, 'A')
 
-print("Minimum Spanning Tree:")
+print('עץ טווח מינימלי:')
 for edge in mst:
     print(edge)
 
-print("Total bobot =", total)
+print('משקל כולל =', total)
 
-# Jawaban Analisis:
-# 1. Node awal apa yang digunakan?
-# 2. Edge mana yang dipilih pertama kali?
-# 3. Bagaimana Prim menentukan edge berikutnya?
-# 4. Berapa total bobot MST yang dihasilkan?
-# 5. Apa perbedaan pendekatan Prim dan Kruskal?
+# תשובה לניתוח:
+# 1. באיזה צומת התחלה משתמשים?
+# 2. איזה קצה נבחר ראשון?
+# 3. איך Prim קובע את הקצה הבא?
+# 4. מהו המשקל הכולל של ה-MST המיוצר?
+# 5. במה נבדלות הגישות של פרים וקרוסקל?
 
-# Jawaban Analisis:
-# 1. Node awal yang digunakan adalah 'A'.
-# 2. Edge yang dipilih pertama kali adalah (2, 'A', 'C') karena memiliki bobot terkecil.
-# 3. Edge berikutnya ditentukan dengan memilih edge yang memiliki bobot paling kecil dari semua edge yang
-# terhubung dengan vertex yang sudah dikunjungi. Edge tersebut dipilih jika menuju ke vertex yang belum dikunjungi, agar tidak membentuk cycle.
-# 4. Total bobot MST yang dihasilkan adalah 6 (2 + 1 + 3).
-# 5. Perbedaan Prim dan Kruskal adalah Prim memulai dari satu vertex, lalu memilih edge dengan bobot
-# terkecil yang terhubung ke vertex yang sudah dikunjungi.
-# Sedangkan Kruskal memilih edge dengan bobot terkecil dari seluruh graph, lalu memasukkannya ke MST selama tidak membentuk cycle.
+# תשובה לניתוח:
+# 1. הצומת הראשוני בשימוש הוא 'A'.
+# 2. הקצה שנבחר ראשון הוא (2, 'A', 'C') מכיוון שיש לו את המשקל הקטן ביותר.
+# 3. הקצה הבא נקבע על ידי בחירת הקצה בעל המשקל הקטן ביותר מכל הקצוות
+# מחובר לקודקוד שכבר ביקר בו. הקצה נבחר אם הוא הולך לקודקוד שלא ביקר בו, כדי לא ליצור מחזור.
+# 4. המשקל הכולל של ה-MST שהתקבל הוא 6 (2 + 1 + 3).
+# 5. ההבדל בין פרים לקרוסקל הוא שפריים מתחיל מקודקוד אחד, ואז בוחר קצוות עם משקלים
+# הקטן ביותר מחובר לקודקוד שכבר ביקר.
+# בינתיים, Kruskal בוחר את הקצה עם המשקל הקטן ביותר מהגרף כולו, ואז מכניס אותו ל-MST כל עוד הוא לא יוצר מחזור.

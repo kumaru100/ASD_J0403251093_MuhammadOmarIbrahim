@@ -1,20 +1,20 @@
 #===================================
-# Nama : Muhammad Omar Ibrahim
-# NIM : J0403251093
-#Latihan 1: Membuat Node
+# שם : Muhammad Omar Ibrahim
+# מספר סטודנט : J0403251093
+#תרגיל 1: יצירת צמתים
 #===================================
 
 class Node:
     def __init__(self,data):
-        self.data = data      # Isi node
-        self.left = None      # Child kiri
-        self.right = None     # Child kanan
-#Membuat root
+        self.data = data      # מלא את הצמתים
+        self.left = None      # ילד עזב
+        self.right = None     # ילד נכון
+#יצירת שורש
 
-root = Node('A')          # Root tree
+root = Node('A')          # עץ שורש
 
-#Menampilkan isi node
-print("Data pada root", root.data)  # Tampilkan data root
+#מציג את תוכן הצומת
+print('נתונים על שורש', root.data)  # הצג נתוני שורש
 
-# Cara kerja: class Node menyimpan data dan dua anak, lalu root dibuat dengan isi 'A'.
-# Program ini hanya menampilkan data pada root sebagai contoh node paling dasar.
+# איך זה עובד: המחלקה Node מאחסנת נתונים ושני ילדים, ואז נוצר שורש עם התוכן 'A'.
+# תוכנית זו מציגה רק נתונים על השורש כדוגמה לצומת הבסיסי ביותר.

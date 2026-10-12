@@ -1,134 +1,134 @@
-# Nama : Muhammad Omar Ibrahim
-# NIM : J0403251093
+# שם : Muhammad Omar Ibrahim
+# מספר סטודנט : J0403251093
 
 # ==========================================================
-# Tugas Hands-On: Sistem Antrian Bengkel Motor
+# משימות מעשית: מערכת תורים לסדנאות אופנועים
 # ==========================================================
 
-# Kelas Node: Menyimpan data satu pelanggan dalam antrian
+# מחלקת צומת: מאחסן נתונים של לקוח אחד בתור
 class Node:
     def __init__(self, no, nama, servis):
-        # no: nomor antrian
-        # nama: nama pelanggan
-        # servis: jenis servis yang diinginkan
-        # next: pointer ke node berikutnya
+        # לא: מספר תור
+        # שם: שם הלקוח
+        # שירות: סוג השירות הרצוי
+        # הבא: מצביע לצומת הבא
         self.no = no
         self.nama = nama
         self.servis = servis
         self.next = None
 
-# Kelas QueueBengkel: Mengimplementasikan antrian (FIFO - First In First Out) untuk bengkel
+# שיעור תור סדנאות: מיישמת תור (FIFO - First In First Out) לסדנאות
 class QueueBengkel:
     def __init__(self):
-        # front: pointer ke pelanggan paling depan (yang akan dilayani pertama)
-        # rear: pointer ke pelanggan paling belakang (pelanggan terakhir yang masuk)
+        # חזית: מצביע ללקוח הקדמי ביותר (מי יוגש ראשון)
+        # אחורי: מצביע ללקוח האחורי ביותר (הלקוח האחרון שנכנס)
         self.front = None
         self.rear = None
 
     def is_empty(self):
-        # Cek apakah antrian kosong
-        # Jika front None berarti tidak ada pelanggan dalam antrian
+        # בדוק אם התור ריק
+        # אם החזית היא None זה אומר שאין לקוחות בתור
         return self.front is None
 
     def enqueue(self, no, nama, servis):
-        # Menambahkan pelanggan baru ke belakang antrian
-        # Buat node baru dengan data pelanggan
+        # הוספת לקוחות חדשים לחלק האחורי של התור
+        # צור צומת חדש עם נתוני לקוחות
         nodeBaru = Node(no, nama, servis)
-        
-        # Jika antrian kosong, node baru menjadi front dan rear
+
+        # אם התור ריק, הצמתים החדשים הופכים קדמיים ואחוריים
         if self.is_empty():
             self.front = nodeBaru
             self.rear  = nodeBaru
             print(f"Pelanggan {nama} ditambahkan ke antrian")
             return
-        
-        # Jika antrian tidak kosong, tambahkan node baru di belakang
-        # Hubungkan node rear lama dengan node baru
+
+        # אם התור לא ריק, הוסף צומת חדש מאחור
+        # חבר את הצומת האחורי הישן עם הצומת החדש
         self.rear.next = nodeBaru
-        # Update rear ke node baru
+        # עדכן את האחורי לצומת חדש
         self.rear = nodeBaru
         print(f"Pelanggan {nama} ditambahkan ke antrian")
-    
+
 
     def dequeue(self):
-        # Melayani pelanggan terdepan (yang pertama masuk)
-        # Cek apakah ada pelanggan dalam antrian
+        # שירות לקוחות קו ראשון (ראשון בתור)
+        # בדוק אם יש לקוחות בתור
         if self.is_empty():
-            print("Antrian Kosong, Tidak ada motor yang diperbaiki !")
+            print('תור ריק, לא מתקנים אופנועים!')
             return None
-        
-        # Simpan data pelanggan yang akan dilayani ke variabel
+
+        # שמור את נתוני הלקוח שיוצגו במשתנה
         nodeDilayani = self.front
-        
-        # Geser pointer front ke node berikutnya
+
+        # הזז את המצביע הקדמי לצומת הבא
         self.front = self.front.next
-        
-        # Jika front menjadi None (artinya semua pelanggan sudah dilayani)
-        # maka rear juga harus None agar antrian benar-benar kosong
+
+        # אם החזית הופכת ללא (כלומר כל הלקוחות טופלו)
+        # אז גם האחורי חייב להיות ללא כך שהתור ריק לחלוטין
         if self.front is None:
             self.rear = None
-        
-        # Tampilkan data pelanggan yang baru saja dilayani
+
+        # הצג נתוני לקוחות שזה עתה הוגשו
         print(f"Pelanggan {nodeDilayani.nama} sedang dilayani (Servis: {nodeDilayani.servis})")
-        
+
         return nodeDilayani
 
     def tampilkan(self):
-        # Menampilkan seluruh antrian dari front (paling depan) hingga rear (paling belakang)
-        print("Daftar Antrian Bengkel Motor (Front -> Rear) : ")
-        
-        # Mulai dari node paling depan (front)
+        # מציג את כל התור מלפנים (הכי מלפנים) לאחור (הרוב מאחור)
+        print('רשימת תורים לסדנאות אופנועים (קדמי -> אחורי):')
+
+        # החל מהצומת הקדמי (קדמי)
         current = self.front
         no = 1
-        
-        # Loop melalui semua node dalam antrian
+
+        # עברו בלולאה בין כל הצמתים בתור
         while current is not None:
-            # Tampilkan data setiap pelanggan yang ada dalam antrian
+            # הצגת נתונים עבור כל לקוח בתור
             print(f"{no}. No Antrian: {current.no}, Nama: {current.nama}, Servis: {current.servis}")
-            # Pindah ke node berikutnya
+            # עבור לצומת הבא
             current = current.next
             no += 1
 
 
 def main():
-    # Buat instance antrian bengkel
+    # צור מופע של תור לסדנאות
     q = QueueBengkel()
-    
-    # Loop menu utama
+
+    # לולאת תפריט ראשי
     while True:
-        print("\n=== Sistem Antrian Bengkel ===")
-        print("1. Tambah Pelanggan")
-        print("2. Layani Pelanggan")
-        print("3. Lihat Antrian")
-        print("4. Keluar")
+        print('=== מערכת תורים לסדנאות ===')
+        print('1. הוסף לקוחות')
+        print('2. לשרת את הלקוחות')
+        print('3. תור הצג')
+        print('4. צא')
 
-        pilih = input("Pilih menu: ")
+        pilih = input('בחר תפריט:')
 
-        # Menu 1: Tambah pelanggan baru ke antrian
+        # תפריט 1: הוסף לקוח חדש לתור
         if pilih == "1":
-            no = input("No Antrian : ")
-            nama = input("Nama : ")
-            servis = input("Servis : ")
+            no = input('מספר תור:')
+            nama = input('שם:')
+            servis = input('שירות:')
             q.enqueue(no, nama, servis)
 
-        # Menu 2: Layani pelanggan paling depan dalam antrian
+        # תפריט 2: משרתים את הלקוח בקדמת התור
         elif pilih == "2":
             q.dequeue()
-  
-        # Menu 3: Tampilkan semua pelanggan yang ada dalam antrian
+
+        # תפריט 3: הצג את כל הלקוחות בתור
         elif pilih == "3":
             print("\n")
             q.tampilkan()
 
-        # Menu 4: Keluar dari program
+        # תפריט 4: צא מהתוכנית
         elif pilih == "4":
-            print("Terima kasih telah menggunakan Sistem Antrian Bengkel!")
+            print('תודה על השימוש במערכת התורים לסדנאות!')
             break
 
-        # Jika pilihan tidak sesuai dengan menu yang ada
+        # אם הבחירה אינה תואמת לתפריט הקיים
         else:
-            print("Pilihan tidak valid")
+            print('בחירה לא חוקית')
 
-# Jalankan program utama ketika file ini dieksekusi langsung
+# הפעל את התוכנית הראשית כאשר קובץ זה מבוצע ישירות
 if __name__ == "__main__":
     main()

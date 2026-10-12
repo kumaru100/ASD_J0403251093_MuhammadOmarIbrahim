@@ -1,5 +1,5 @@
-# Nama : Muhammad Omar Ibrahim
-# NIM : J0403251093
+# שם : Muhammad Omar Ibrahim
+# מספר סטודנט : J0403251093
 
 def merge(left, right):
     result = []
@@ -15,19 +15,11 @@ def merge(left, right):
         result.extend(left[i:])
         result.extend(right[j:])
     return result
-'''
-Soal:
-1. Lengkapi kondisi agar menjadi ascending.
-2. Jelaskan fungsi result.extend().
-'''
+'שאלה:\n1. השלם את התנאים כדי להפוך לעולה.\n2. הסבר את הפונקציה result.extend() .'
 
-'''
-Jawaban:
-1. Ubah kondisi if menjadi left[i] < right[j] untuk ascending.
-2. result.extend() digunakan untuk menambahkan semua elemen dari list yang diberikan ke dalam list
-'''
+'תשובה:\n1. שנה את התנאי אם לשמאל[i] < ימין[j] לעליה.\n2. result.extend() משמש להוספת כל הרכיבים של הרשימה הנתונה לרשימה'
 
-#1. Ascending
+#1. עולה
 # def merge(left, right):
 #     result = []
 #     i = 0

@@ -1,27 +1,27 @@
-# Nama : Muhammad Omar Ibrahim
-# NIM : J0403251093
+# שם : Muhammad Omar Ibrahim
+# מספר סטודנט : J0403251093
 
 # ==========================================================
-# Latihan 4: Kombinasi Huruf (Backtracking Dasar)
+# תרגיל 4: שילובי אותיות (חזרה בסיסית)
 # ==========================================================
 
 def kombinasi(n, hasil=""):
-    
-    # Base case (kondisi berhenti)
-    # Jika panjang string 'hasil' sudah sama dengan n,
-    # maka kombinasi sudah lengkap
+
+    # מקרה בסיס (מצב עצירה)
+    # אם אורך מחרוזת ה'תוצאה' כבר שווה ל-n,
+    # אז השילוב הושלם
     if len(hasil) == n:
-        print(hasil)   # Cetak kombinasi
-        return         # Hentikan cabang ini
-    
-    # Recursive case (choose & explore)
-    
-    # Pilihan 1: tambahkan huruf "A"
+        print(hasil)   # שילוב הדפסה
+        return         # בטל את הסניף הזה
+
+    # מקרה רקורסיבי (בחר וחקור)
+
+    # אפשרות 1: הוסף את האות "A"
     kombinasi(n, hasil + "A")
-    
-    # Pilihan 2: tambahkan huruf "B"
+
+    # אפשרות 2: הוסף את האות "B"
     kombinasi(n, hasil + "B")
 
 
-# Memulai kombinasi dengan panjang 2
+# שילוב מתחיל עם אורך 2
 kombinasi(2)

@@ -1,34 +1,22 @@
-# Nama : Muhammad Omar Ibrahim
-# NIM : J0403251093
+# שם : Muhammad Omar Ibrahim
+# מספר סטודנט : J0403251093
 
 def insertion_sort(data):
-    # Loop dari elemen kedua sampai terakhir
+    # לולאה מהאלמנט השני לאחרון
     for i in range(1, len(data)):
-        key = data[i]  # Elemen yang sedang ingin ditempatkan pada posisi yang benar
-        j = i - 1      # Indeks elemen sebelumnya
+        key = data[i]  # האלמנט שברצונך למקם נמצא במיקום הנכון
+        j = i - 1      # אינדקס האלמנט הקודם
 
-        # Geser elemen yang lebih besar dari key ke kanan
+        # העבר אלמנטים גדולים מהמפתח ימינה
         while j >= 0 and data[j] > key:
-            data[j + 1] = data[j]  # Geser elemen ke kanan
-            j -= 1                 # Pindah ke elemen sebelumnya
+            data[j + 1] = data[j]  # העבר את האלמנט ימינה
+            j -= 1                 # עבור לאלמנט הקודם
 
-        # Tempatkan key pada posisi yang benar
+        # הנח את המפתח במיקום הנכון
         data[j + 1] = key
 
-    # Kembalikan list yang sudah terurut
+    # החזר את הרשימה הממוינת
     return data
-'''
-Soal:
-1. Mengapa perulangan dimulai dari indeks 1?
-2. Apa fungsi variabel key?
-3. Mengapa digunakan while, bukan for?
-4. Operasi apa yang terjadi di dalam while?
-'''
+'שאלה:\n1. מדוע הלולאה מתחילה ממדד 1?\n2. מה תפקידו של משתנה המפתח?\n3. למה להשתמש בעוד, לא עבור?\n4. אילו פעולות מתרחשות תוך זמן?'
 
-'''
-Jawaban:
-1. Elemen pertama (indeks 0) sudah dianggap tersort, mulai dari indeks 1.
-2. Key menyimpan nilai elemen saat ini yang akan diurutkan.
-3. While untuk geser elemen karena jumlah iterasi tidak pasti, for butuh jumlah tetap.
-4. Menggeser elemen ke kanan (data[j+1] = data[j]) dan j -= 1 sampai posisi tepat.
-'''
+'תשובה:\n1. האלמנט הראשון (אינדקס 0) נחשב לממוין, החל ממדד 1.\n2. מפתח מאחסן את הערך של האלמנט הנוכחי למיון.\n3. בעוד להזיז אלמנטים מכיוון שמספר האיטרציות אינו ודאי, עבור דורש מספר קבוע.\n4. העבר את האלמנט ימינה (data[j+1] = data[j]) ו-j -= 1 עד למיקום הנכון.'

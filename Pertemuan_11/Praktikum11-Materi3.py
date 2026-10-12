@@ -1,12 +1,12 @@
 #=================================================
-# Nama : Muhammad Omar Ibrahim
-# NIM : J0403251093
-#Implementasi dfs
+# שם : Muhammad Omar Ibrahim
+# מספר סטודנט : J0403251093
+#יישום dfs
 #=================================================
-#Struktur data untuk membuat antrian, kita gunakan dari library collections bawaan python
+#אנו משתמשים במבנה הנתונים כדי ליצור את התור מספריית אוספי Python המובנית
 from collections import deque
 
-#representasi graph
+#ייצוג גרפי
 graph ={
     'A': ['B', 'C'],
     'B': ['D', 'E'],
@@ -15,28 +15,28 @@ graph ={
     'E':[],
     'F':[],
     'G':[],
-        
+
 }
 
 def dfs(graph, node, visited):
-    #Fungsi untuk melakukan penelusuran graph menggunakan DFS
-    #graph : dictionary yang mentimpan graph
-    #node: menyimpan node yang sedang dikunjungi
-    #Visited : Menyimpan node yang sudah dikunjungi
+    #פונקציה לביצוע מעקב אחר גרפים באמצעות DFS
+    #גרף : מילון המאחסן גרפים
+    #צומת: מאחסן את הצומת שבו ביקרת כעת
+    #ביקר: שומר צמתים שביקרו בהם
 
-    #Tandai node saat ini udah dikunjungi
+    #סמן את הצומת הנוכחי כמבקר
     visited.add(node)
-    
 
-    #Tampilkan node yang sedang ddikunjungi
+
+    #הצג את הצמתים שבהם ביקרת כעת
     print(node, end=" ")
     for neighbor in graph[node]:
-        #Jika tetangga belum pernah dikunjungi
+        #אם מעולם לא ביקרו שכנים
         if neighbor not in visited:
             dfs(graph, neighbor, visited)
 
-#Set visited
+#סט ביקר
 visited=set()
 
-#Menjalankan data 
+#נתוני ריצה
 dfs(graph,"A",visited)

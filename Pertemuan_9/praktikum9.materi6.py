@@ -1,38 +1,38 @@
 #=================================================
-# Nama : Muhammad Omar Ibrahim
-# NIM : J0403251093
-# Latihan 6: Strutur Organisasi Perusahaan
+# שם : Muhammad Omar Ibrahim
+# מספר סטודנט : J0403251093
+# תרגיל 6: מבנה ארגוני של החברה
 #=================================================
 class Node:
     def __init__(self,data):
-        self.data = data      # Isi node
-        self.left = None      # Child kiri
-        self.right = None     # Child kanan
+        self.data = data      # מלא את הצמתים
+        self.left = None      # ילד עזב
+        self.right = None     # ילד נכון
 
-#Fungsi pre order traversal
+#פונקציית מעבר בהזמנה מראש
 def preorder(node):
     if node is not None:
-        print(node.data)      # Tampil data node
-        preorder(node.left)   # Lanjut kiri
-        preorder(node.right)  # Lanjut kanan
+        print(node.data)      # הצג נתוני צומת
+        preorder(node.left)   # המשך שמאלה
+        preorder(node.right)  # המשך ימינה
 
-#Membuat tree struktur organisasi
-root = Node("Direktur")   # Pimpinan tertinggi
+#צור עץ מבנה ארגוני
+root = Node('במאי')   # המנהיג הכי גבוה
 
-#Child level 1
-root.left = Node("Manager A")   # Cabang kiri
-root.right = Node("Manager B")  # Cabang kanan
+#ילד רמה 1
+root.left = Node('מנהל א')   # סניף שמאל
+root.right = Node('מנהל ב')  # סניף ימני
 
-#Child level 2
-root.left.left = Node("Staff 1")   # Staff bawah A
-root.left.right = Node("Staff 2")  # Staff bawah A
+#ילד רמה 2
+root.left.left = Node('צוות 1')   # צוות תחת א
+root.left.right = Node('צוות 2')  # צוות תחת א
 
-root.right.left = Node("Staff 3")  # Staff bawah B
+root.right.left = Node('צוות 3')  # הסגל התחתון של ב'
 
 
-#Menjalankan Traversal Preorder
-print("Struktur Organisasi (preorder):")  # Judul hasil
-preorder(root)                              # Tampilkan tree
+#הפעלת מעבר הזמנה מראש
+print('מבנה ארגוני (הזמנה מראש):')  # כותרת התוצאה
+preorder(root)                              # הצג עץ
 
-# Cara kerja: struktur organisasi digambar sebagai tree, lalu preorder menampilkan pimpinan dulu.
-# Setelah itu program masuk ke cabang manager dan staff dari kiri ke kanan.
+# איך זה עובד: המבנה הארגוני מצויר כעץ, ואז הזמנה מראש מציגה תחילה את המנהיגים.
+# לאחר מכן, התוכנית נכנסת לסניפי המנהל והצוות משמאל לימין.

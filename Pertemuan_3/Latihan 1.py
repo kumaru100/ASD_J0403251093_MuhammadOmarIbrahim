@@ -1,5 +1,5 @@
-# Nama : Muhammad Omar Ibrahim
-# NIM : J0403251093
+# שם : Muhammad Omar Ibrahim
+# מספר סטודנט : J0403251093
 
 class Node:
     def __init__(self, data):
@@ -10,87 +10,87 @@ class LinkedList:
     def __init__(self):
         self.head = None
 
-    # Menambah node di depan (Head)
+    # הוספת צומת מקדימה (ראש)
     def push(self, new_data):
         new_node = Node(new_data)
         new_node.next = self.head
         self.head = new_node
 
-    # Menghapus node berdasarkan key
+    # מוחק צמתים על סמך מפתח
     def delete_node(self, key):
         temp = self.head
 
-        # 1. Jika head node memegang key yang dicari
+        # 1. אם צומת הראש מחזיק את המפתח שמחפשים
         if temp is not None and temp.data == key:
             self.head = temp.next
             temp = None
             print(f"Berhasil menghapus {key}.")
             return
 
-        # 2. Mencari key di sisa list
+        # 2. חפש את המפתח בשאר הרשימה
         prev = None
         while temp is not None and temp.data != key:
             prev = temp
             temp = temp.next
 
-        # 3. Jika key tidak ditemukan
+        # 3. אם המפתח לא נמצא
         if temp is None:
             print(f"Nilai {key} tidak ditemukan dalam list.")
             return
 
-        # 4. Unlink node
+        # 4. בטל קישור של צמתים
         prev.next = temp.next
         temp = None
         print(f"Berhasil menghapus {key}.")
 
-    # Mencetak isi list
+    # הדפס את תוכן הרשימה
     def print_list(self):
         temp = self.head
         if temp is None:
-            print(" (List Kosong)")
+            print('(רשימה ריקה)')
             return
-        print("Isi List saat ini: ", end="")
+        print('תוכן הרשימה הנוכחית:', end="")
         while temp:
             print(f" {temp.data} ->", end="")
             temp = temp.next
-        print(" None")
+        print(" ריק")
 
-# --- BAGIAN UTAMA ---
+# --- חלקים עיקריים ---
 if __name__ == "__main__":
     llist = LinkedList()
 
-    # --- DATA SUDAH DISEDIAKAN DI SINI ---
-    # Anda bisa mengubah angka-angka di dalam kurung siku ini
+    # --- הנתונים מסופקים כאן ---
+    # אתה יכול לשנות את המספרים בסוגריים מרובעים אלה
     angka_bawaan = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    
-    # Memasukkan data ke Linked List
-    # Kita reverse agar urutan di layar sama dengan urutan di list angka_bawaan
+
+    # הזנת נתונים לרשימה המקושרת
+    # אנו הופכים את זה כך שהסדר על המסך זהה לסדר ברשימת default_number
     for angka in reversed(angka_bawaan):
         llist.push(angka)
 
-    print("=== PROGRAM HAPUS NODE (DATA PRE-DEFINED) ===")
-    
-    # Langsung masuk ke Loop interaktif
+    print('=== תוכנית למחיקת צמתים (נתונים מוגדרים מראש) ===')
+
+    # קפוץ ישר ללולאה האינטראקטיבית
     while True:
         print("\n--------------------------------")
-        # 1. Tampilkan kondisi list saat ini
+        # 1. הצג את המצב הנוכחי של הרשימה
         llist.print_list()
-        
-        # 2. Cek jika list sudah habis
+
+        # 2. בדוק אם הרשימה הסתיימה
         if llist.head is None:
-            print("\nList sudah kosong. Tidak ada yang bisa dihapus.")
-            print("Program berhenti.")
+            print('הרשימה ריקה. אי אפשר למחוק שום דבר.')
+            print('התוכנית נעצרת.')
             break
 
-        # 3. Konfirmasi user
-        tanya = input("\nApakah Anda ingin menghapus node? (y/n): ").lower()
+        # 3. אישור משתמש
+        tanya = input("\nהאם ברצונך למחוק את הצומת? (y/n): ").lower()
         if tanya != 'y':
-            print("Program selesai. Terima kasih!")
+            print('התוכנית הושלמה. תודה לך!')
             break
-        
-        # 4. Proses Input & Hapus
+
+        # 4. תהליך קלט ומחיקה
         try:
-            key_hapus = int(input("Masukkan angka yang ingin dihapus: "))
+            key_hapus = int(input('הזן את המספרים שברצונך למחוק:'))
             llist.delete_node(key_hapus)
         except ValueError:
-            print("❌ Error: Harap masukkan angka bulat saja.")
+            print('❌ שגיאה: נא להזין רק מספרים עגולים.')

@@ -1,12 +1,12 @@
 #=================================================
-# Nama : Muhammad Omar Ibrahim
-# NIM : J0403251093
-#Implementasi bfs
+# שם : Muhammad Omar Ibrahim
+# מספר סטודנט : J0403251093
+#יישום של bfs
 #=================================================
-#Struktur data untuk membuat antrian, kita gunakan dari library collections bawaan python
+#אנו משתמשים במבנה הנתונים כדי ליצור את התור מספריית אוספי Python המובנית
 from collections import deque
 
-#representasi graph
+#ייצוג גרפי
 graph ={
     'A': ['B', 'C'],
     'B': ['D', 'E'],
@@ -15,40 +15,40 @@ graph ={
     'E':[],
     'F':[],
     'G':[],
-        
+
 }
 
 def bfs(graph,start):
-    #Fungsi untuk melakukan penelusuran graph dengan bfs
-    # graph : dictionary yang menyimpan struktur dari graph
-    # start : node awal penelusuran
-    
-    #Queue digunakan untuk menyimpan node yang akan dipreoses / dibaca
+    #פונקציה לביצוע מעקב אחר גרפים עם bfs
+    # גרף : מילון המאחסן את מבנה הגרפים
+    # start : צומת ההתחלה של החיפוש
+
+    #תור משמש לאחסון צמתים שיעובדו/יקראו
     queue = deque()
 
-    #Variabel yang digunakan untuk menyimpan node yang suda diproses/sudah dikunjungi
+    #משתנה המשמש לאחסון צמתים שעברו עיבוד/ביקור
     visited = set()
 
-    #Masukkan node awal ke queue
+    #הכנס את הצומת הראשוני לתור
     queue.append(start)
 
-    #Tandai node awal sebagai node yang sudah dikunjungi
+    #סמן את צומת ההתחלה כצומת ביקר
     visited.add(start)
 
     while queue:
         node = queue.popleft()
 
-        #Tampilkan node yang sedang dikunjungi
+        #הצג את הצמתים שבהם ביקרת כעת
         print(node, end=' ')
 
-        #Periksa semua tetangga dari node yang diambil:
+        #בדוק את כל השכנים של הצומת שאוחזר:
         for neighbor in graph[node]:
-            #Jika tetangga belum dikunjungi
+            #אם לא ביקרו שכנים
             if neighbor not in visited:
-                #Tandai sebagai sudah dikunjungi
+                #סמן כביקור
                 visited.add(neighbor)
-                #Masukkan tetangga ke queue untuk diproses
+                #שים שכנים בתור לעיבוד
                 queue.append(neighbor)
 
-#Bfs dari node A
+#Bfs של צומת A
 bfs(graph,'A')

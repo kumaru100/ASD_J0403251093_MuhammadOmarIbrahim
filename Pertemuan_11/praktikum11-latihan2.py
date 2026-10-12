@@ -1,43 +1,43 @@
-# Nama : Muhammad Omar Ibrahim
-# NIM : J0403251093
+# שם : Muhammad Omar Ibrahim
+# מספר סטודנט : J0403251093
 
-graph = { 
-'A': ['B', 'C'], 
-'B': ['D', 'E'], 
-'C': ['F'], 
-'D': [], 
-'E': [], 
-'F': [] 
-} 
+graph = {
+'A': ['B', 'C'],
+'B': ['D', 'E'],
+'C': ['F'],
+'D': [],
+'E': [],
+'F': []
+}
 
-def dfs(graph, node, visited): 
-    visited.add(node) 
-    print(node, end=" ") 
+def dfs(graph, node, visited):
+    visited.add(node)
+    print(node, end=" ")
 
-    for neighbor in graph[node]: 
-        if neighbor not in visited: 
-            dfs(graph, neighbor, visited) 
-visited = set() 
-print("DFS dari A:") 
+    for neighbor in graph[node]:
+        if neighbor not in visited:
+            dfs(graph, neighbor, visited)
+visited = set()
+print('DFS של A:')
 dfs(graph, 'A', visited)
 
-#Pertanyaan Analisis 
-#1. Mengapa DFS masuk ke node terdalam terlebih dahulu?  
-#2. Apa yang terjadi jika urutan neighbor diubah?  
-#3. Bandingkan hasil DFS dengan BFS pada graph yang sama. 
+#שאלות ניתוח
+#1. מדוע DFS הולך לצומת העמוק ביותר ראשון?
+#2. מה קורה אם ישתנה צו השכן?
+#3. השווה את התוצאות של DFS עם BFS באותו גרף.
 
-#Jawaban:
-#1. DFS masuk ke node terdalam terlebih dahulu karena:
-#   - DFS menggunakan pendekatan "telusuri sampai buntu, baru mundur"
-#   - Setiap kali menemukan neighbor, langsung masuk ke node tersebut (rekursi)
-#   - Tidak berhenti sampai tidak ada neighbor lagi, baru mencoba branch lain
+#תשובה:
+#1. DFS עובר תחילה לצומת העמוק ביותר מכיוון:
+#   - DFS משתמש בגישת "חפש עד מבוי סתום, ואז מסלול אחורה".
+#   - בכל פעם שאתה מוצא שכן, עבור ישר לצומת זה (רקורסיה)
+#   - אל תפסיק עד שלא יהיו יותר שכנים, אז נסה סניף אחר
 
-#2. Jika urutan neighbor diubah:
-#   - Urutan kunjungan node akan berubah (karena urutan neighbor berbeda)
-#   - Tapi semua node tetap dikunjungi (selama graph terhubung)
-#   - Contoh: jika B didahulukan sebelum C, maka pohon D-E akan dieksplor lebih dulu
+#2. אם הסדר השכן שונה:
+#   - סדר הביקורים בצמתים ישתנה (מכיוון שסדר השכנים שונה)
+#   - אבל בכל הצמתים עדיין מבקרים (כל עוד הגרף מחובר)
+#   - דוגמה: אם B בא לפני C, אז עץ ה-D-E ייבדק תחילה
 
-#3. Perbandingan DFS vs BFS pada graph yang sama:
-#   - BFS: Rumah → Sekolah, Toko → Perpustakaan, Pasar (level demi level)
-#   - DFS: Rumah → Sekolah → Perpustakaan → (kembali) → Toko → Pasar
-#   - BFS lebih cocok untuk jalur terdekat, DFS lebih cocok untuk eksplorasi mendalam
+#3. השוואה של DFS לעומת BFS באותו גרף:
+#   - BFS: בית → בית ספר, חנות → ספרייה, שוק (רמה לפי רמה)
+#   - DFS: בית → בית ספר → ספריה → (מחדש) → חנות → שוק
+#   - BFS מתאים יותר לשבילים סמוכים, DFS מתאים יותר לחקר מעמיק

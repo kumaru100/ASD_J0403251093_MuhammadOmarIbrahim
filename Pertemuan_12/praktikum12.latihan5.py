@@ -1,81 +1,78 @@
 # ==========================================================
-# Tugas: Jalur Terpendek Antar Kota
-# Algoritma: Dijkstra
-# Nama : Muhammad Omar Ibrahim
-# Nim: J0403251093
+# משימה: הדרך הקצרה ביותר בין ערים
+# אלגוריתם: דיקסטרה
+# שם : Muhammad Omar Ibrahim
+# מספר סטודנט: J0403251093
 # ==========================================================
 
-import heapq  # modul untuk priority queue (min-heap)
+import heapq  # מודול לתור עדיפות (מיני-ערימה)
 
-# Representasi graph berbobot antar kota
-# Bobot menunjukkan jarak/waktu tempuh antar kota
+# ייצוג גרף משוקלל בין ערים
+# המשקל מציג את המרחק/זמן הנסיעה בין ערים
 graph = {
-    'Bogor':   {'Jakarta': 5, 'Depok': 2},  # Bogor ke Jakarta (5), Bogor ke Depok (2)
-    'Depok':   {'Jakarta': 2, 'Bandung': 6}, # Depok ke Jakarta (2), Depok ke Bandung (6)
-    'Jakarta': {'Bandung': 7},               # Jakarta ke Bandung (7)
-    'Bandung': {}                            # Bandung tidak punya tetangga (node tujuan)
+    'בוגור':   {"ג'קרטה": 5, 'דפוק': 2},  # בוגור לג'קרטה (5), בוגור לדפוק (2)
+    'דפוק':   {"ג'קרטה": 2, 'בנדונג': 6}, # דפוק לג'קרטה (2), דפוק לבנדונג (6)
+    "ג'קרטה": {'בנדונג': 7},               # ג'קרטה לבנדונג (7)
+    'בנדונג': {}                            # לבנדונג אין שכנים (צמתי יעד)
 }
 
 def dijkstra(graph, start):
-    """
-    Fungsi mencari jarak terpendek dari node start
-    ke semua node lain menggunakan algoritma Dijkstra.
-    """
-    # Inisialisasi semua jarak dengan tak hingga karena belum diketahui
+    'הפונקציה מוצאת את המרחק הקצר ביותר מצומת ההתחלה\n    לכל שאר הצמתים באמצעות האלגוריתם של Dijkstra.'
+    # אתחול כל המרחקים עם אינסוף כי הם עדיין לא ידועים
     distances = {node: float('inf') for node in graph}
 
-    # Jarak dari start ke dirinya sendiri adalah 0
+    # המרחק מההתחלה לעצמו הוא 0
     distances[start] = 0
 
-    # Priority queue menyimpan (jarak, node), diproses dari jarak terkecil
+    # חנויות תור עדיפות (מרחק, צומת), מעובדות מהמרחק הקטן ביותר
     priority_queue = [(0, start)]
 
     while priority_queue:
-        # Ambil node dengan jarak terkecil
+        # קח את הצומת עם המרחק הקטן ביותר
         current_distance, current_node = heapq.heappop(priority_queue)
 
-        # Lewati jika jarak ini sudah tidak relevan
+        # דלג אם המרחק הזה כבר לא רלוונטי
         if current_distance > distances[current_node]:
             continue
 
-        # Periksa semua tetangga dari node saat ini
+        # בדוק את כל השכנים של הצומת הנוכחי
         for neighbor, weight in graph[current_node].items():
-            # Hitung total jarak ke tetangga melalui node saat ini
+            # חשב את המרחק הכולל לשכנים דרך הצומת הנוכחי
             distance = current_distance + weight
 
-            # Jika ditemukan jarak lebih kecil, perbarui dan masukkan ke queue
+            # אם נמצא מרחק קטן יותר, עדכן אותו והכניס אותו לתור
             if distance < distances[neighbor]:
                 distances[neighbor] = distance
                 heapq.heappush(priority_queue, (distance, neighbor))
 
-    return distances  # kembalikan dict jarak terpendek ke semua node
+    return distances  # להחזיר את המרחק הקצר ביותר לכל הצמתים
 
-# Tentukan node awal
-start_node = 'Bogor'
+# קבע את צומת ההתחלה
+start_node = 'בוגור'
 
-# Jalankan algoritma Dijkstra dari node awal
+# הפעל את האלגוריתם של Dijkstra מצומת ההתחלה
 hasil = dijkstra(graph, start_node)
 
-# Tampilkan jarak terpendek dari node awal ke semua node
+# הצג את המרחק הקצר ביותר מצומת ההתחלה לכל הצמתים
 print(f"Jarak terpendek dari {start_node}:")
 for kota, jarak in hasil.items():
     print(f"{start_node} -> {kota} = {jarak}")
 
 
-# Pertanyaan Analisis: 
-# 1. Node awal yang digunakan apa? 
-# 2. Node mana yang memiliki jarak paling kecil dari node awal? 
-# 3. Node mana yang memiliki jarak paling besar dari node awal? 
-# 4. Jelaskan bagaimana algoritma Dijkstra bekerja pada kasus yang Anda buat. 
+# שאלות ניתוח:
+# 1. באיזה צומת ראשוני משתמשים?
+# 2. לאיזה צומת יש את המרחק הקטן ביותר מצומת ההתחלה?
+# 3. לאיזה צומת יש את המרחק הגדול ביותר מצומת ההתחלה?
+# 4. הסבר כיצד האלגוריתם של דיקסטרה עובד במקרה שיצרת.
 
 
-# Jawaban Analisis:
-# 1. Node awal yang digunakan adalah Bogor
-# 2. Node dengan jarak paling kecil dari Bogor adalah Depok (jarak = 2)
-# 3. Node dengan jarak paling besar dari Bogor adalah Bandung (jarak = 8)
-# 4. Dijkstra dimulai dari Bogor (jarak 0), lalu memilih tetangga
-#    dengan jarak terkecil terlebih dahulu menggunakan priority queue.
-#    Pertama Depok (2) diproses, lalu dari Depok ditemukan Jakarta (2+2=4)
-#    lebih kecil dari jalur langsung Bogor->Jakarta (5), sehingga diperbarui.
-#    Dari Depok juga ditemukan Bandung (2+6=8). Proses berlanjut sampai
-#    semua node mendapat jarak terpendek yang optimal.
+# תשובה לניתוח:
+# 1. הצומת הראשוני בו נעשה שימוש הוא בוגור
+# 2. הצומת עם המרחק הקטן ביותר מבוגור הוא Depok (מרחק = 2)
+# 3. הצומת עם המרחק הגדול ביותר מבוגור הוא בנדונג (מרחק = 8)
+# 4. דיקסטרה מתחיל מבוגור (מרחק 0), ואז בוחר שכנים
+#    עם המרחק הקטן ביותר השתמש תחילה בתור העדיפות.
+#    תחילה מעובד Depok (2), ואז מ-Depok Jakarta נמצא (2+2=4)
+#    קטן יותר מהמסלול הישיר בוגור->ג'קרטה (5), אז הוא מעודכן.
+#    מדפוק נמצא גם בנדונג (2+6=8). התהליך נמשך עד
+#    כל הצמתים מקבלים את המרחק הקצר האופטימלי ביותר.

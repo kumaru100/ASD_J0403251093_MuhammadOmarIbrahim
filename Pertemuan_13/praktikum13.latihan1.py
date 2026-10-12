@@ -1,9 +1,9 @@
-# Nama : Muhammad Omar Ibrahim
-# NIM : J0403251093
-# Kelas : TPL B1
-# Praktikum 13 - Graph III: Spanning Tree
+# שם : Muhammad Omar Ibrahim
+# מספר סטודנט : J0403251093
+# כיתה : TPL B1
+# מעשי 13 - גרף III: עץ משתרע
 
-# Daftar edge graph
+# רשימה של קצוות גרף
 edges = [
 ('A', 'B'),
 ('A', 'C'),
@@ -11,44 +11,44 @@ edges = [
 ('C', 'D'),
 ('B', 'D')
 ]
-# Contoh spanning tree
+# דוגמה לעץ פורש
 spanning_tree = [
 ('A', 'C'),
 ('C', 'D'),
 ('D', 'B')
 ]
-print("Edge pada graph:")
+print('קצה בגרף:')
 for edge in edges:
     print(edge)
 
-print("\nSpanning Tree:")
+print('עץ משתרע:')
 for edge in spanning_tree:
     print(edge)
 
-print("\nJumlah edge graph =", len(edges))
-print("Jumlah edge spanning tree =", len(spanning_tree))
+print('מספר קצוות הגרף =', len(edges))
+print('מספר קצוות עצים פורשים =', len(spanning_tree))
 
 
-# Pertanyaan Analisis:
-# 1. Apa perbedaan graph awal dan spanning tree?
-# 2. Mengapa spanning tree tidak boleh memiliki cycle?
-# 3. Mengapa jumlah edge spanning tree selalu lebih sedikit?
+# שאלות ניתוח:
+# 1. מה ההבדל בין גרף ראשוני לעץ פורש?
+# 2. למה לעץ פורש לא יכולים להיות מחזורים?
+# 3. מדוע מספר קצוות העצים הפורשים תמיד קטן?
 
-# Jawaban Analisis:
+# תשובה לניתוח:
 
-# 1. Perbedaan antara graph awal dan spanning tree adalah
-# bahwa graph awal dapat memiliki lebih banyak edge dan
-# mungkin memiliki cycle, sedangkan spanning tree adalah
-# subgraph yang menghubungkan semua vertex tanpa
-# membentuk cycle.
+# 1. ההבדל בין הגרף הראשוני לעץ הפורש הוא
+# שלגרף הראשוני יכולים להיות יותר קצוות ו
+# עשויים להיות מחזורים, ואילו עץ פורש כן
+# תת-גרף המחבר את כל הקודקודים ללא
+# יצירת מחזור.
 
-# 2. Spanning tree tidak boleh memiliki cycle karena
-# tujuan utama dari spanning tree adalah untuk
-# menghubungkan semua vertex dengan jumlah edge yang
-# minimal. Jika ada cycle, maka ada edge yang tidak
-# diperlukan untuk menjaga konektivitas, sehingga
-# tidak efisien.
+# 2. עצים משתרעים לא יכולים להיות מחזורים בגלל
+# המטרה העיקרית של עץ פורש היא
+# לחבר את כל הקודקודים עם אותו מספר של קצוות
+# מינימום. אם יש מחזור, אז יש קצה שהוא לא
+# הכרחי כדי לשמור על קישוריות, אז
+# לא יעיל.
 
-# 3. Jumlah edge spanning tree selalu lebih sedikit
-# karena spanning tree hanya mencakup edge yang
-# diperlukan untuk menghubungkan semua vertex tanpa loop.
+# 3. מספר קצוות עצים פורשים תמיד קטן
+# כי עץ פורש כולל רק קצוות
+# נדרש לחבר את כל הקודקודים ללא לולאות.

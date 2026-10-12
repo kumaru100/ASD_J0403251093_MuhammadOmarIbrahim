@@ -1,74 +1,71 @@
 # ==========================================================
-# Latihan 2: Implementasi Dijkstra
-# Nama : Muhammad Omar Ibrahim
-# Nim: J0403251093
+# תרגיל 2: יישום דיקסטרה
+# שם : Muhammad Omar Ibrahim
+# מספר סטודנט: J0403251093
 # ==========================================================
-import heapq  # modul untuk priority queue (min-heap)
+import heapq  # מודול לתור עדיפות (מיני-ערימה)
 
-# Weighted graph dengan bobot positif
+# גרף משוקלל עם משקלים חיוביים
 graph = {
-    'A': {'B': 4, 'C': 2},  # A terhubung ke B (bobot 4) dan C (bobot 2)
-    'B': {'D': 5},           # B terhubung ke D (bobot 5)
-    'C': {'D': 1},           # C terhubung ke D (bobot 1)
-    'D': {}                  # D tidak punya tetangga (node tujuan)
+    'A': {'B': 4, 'C': 2},  # A מחובר ל-B (משקל 4) ול-C (משקל 2)
+    'B': {'D': 5},           # B מתחבר ל-D (משקל 5)
+    'C': {'D': 1},           # C מחובר ל-D (משקל 1)
+    'D': {}                  # ל-D אין שכנים (צומת יעד)
 }
 
 def dijkstra(graph, start):
-    """
-    Fungsi untuk mencari jarak terpendek dari node start
-    ke seluruh node lain menggunakan algoritma Dijkstra.
-    """
-    # Inisialisasi semua jarak dengan tak hingga karena belum diketahui
+    'פונקציה למציאת המרחק הקצר ביותר מצומת ההתחלה\n    לכל שאר הצמתים באמצעות האלגוריתם של Dijkstra.'
+    # אתחול כל המרחקים עם אינסוף כי הם עדיין לא ידועים
     distances = {node: float('inf') for node in graph}
 
-    # Jarak dari start ke dirinya sendiri selalu 0
+    # המרחק מההתחלה לעצמו הוא תמיד 0
     distances[start] = 0
 
-    # Priority queue menyimpan (jarak, node), diurutkan dari jarak terkecil
+    # חנויות תור העדיפות (מרחק, צמתים), ממוינות מהמרחק הקטן ביותר
     priority_queue = [(0, start)]
 
     while priority_queue:
-        # Ambil node dengan jarak terkecil dari priority queue
+        # קח את הצומת עם המרחק הקטן ביותר מתור העדיפות
         current_distance, current_node = heapq.heappop(priority_queue)
 
-        # Lewati jika jarak ini sudah tidak relevan (ada yang lebih kecil sebelumnya)
+        # דלג אם המרחק הזה כבר לא רלוונטי (היו קטנים יותר בעבר)
         if current_distance > distances[current_node]:
             continue
 
-        # Periksa semua tetangga dari node saat ini
+        # בדוק את כל השכנים של הצומת הנוכחי
         for neighbor, weight in graph[current_node].items():
-            # Hitung total jarak ke tetangga melalui node saat ini
+            # חשב את המרחק הכולל לשכנים דרך הצומת הנוכחי
             distance = current_distance + weight
 
-            # Jika ditemukan jarak lebih kecil, perbarui dan masukkan ke queue
+            # אם נמצא מרחק קטן יותר, עדכן אותו והכניס אותו לתור
             if distance < distances[neighbor]:
                 distances[neighbor] = distance
                 heapq.heappush(priority_queue, (distance, neighbor))
 
-    return distances  # kembalikan dict berisi jarak terpendek ke semua node
+    return distances  # להחזיר dict המכיל את המרחק הקצר ביותר לכל הצמתים
 
-# Jalankan Dijkstra mulai dari node 'A'
+# הפעל את Dijkstra החל מהצומת 'A'
 hasil = dijkstra(graph, 'A')
 
-# Tampilkan hasil jarak terpendek dari A ke semua node
-print("Jarak terpendek dari node A:")
+# הצג את התוצאות של המרחק הקצר ביותר מ-A לכל הצמתים
+print('המרחק הקצר ביותר מצומת A:')
 for node, distance in hasil.items():
     print(node, "=", distance)
 
-# Pertanyaan Analisis: 
-# 1. Berapa jarak terpendek dari A ke B? 
-# 2. Berapa jarak terpendek dari A ke C? 
-# 3. Berapa jarak terpendek dari A ke D? 
-# 4. Mengapa jarak A ke D lebih kecil melalui C dibandingkan melalui B? 
-# 5. Apa fungsi priority_queue dalam algoritma Dijkstra? 
-# 6. Mengapa Dijkstra tidak cocok untuk graph dengan bobot negatif?
+# שאלות ניתוח:
+# 1. מהו המרחק הקצר ביותר מ-A ל-B?
+# 2. מהו המרחק הקצר ביותר מ-A ל-C?
+# 3. מהו המרחק הקצר ביותר מ-A ל-D?
+# 4. מדוע המרחק מ-A ל-D קטן יותר דרך C מאשר דרך B?
+# 5. מהי הפונקציה של priority_queue באלגוריתם של דיקסטרה?
+# 6. למה דיקסטרה לא מתאים לגרפים עם משקלים שליליים?
 
 
-# Jawaban Analisis:
-# 1. Jarak terpendek A ke B = 4
-# 2. Jarak terpendek A ke C = 2
-# 3. Jarak terpendek A ke D = 3 (lewat C: 2+1)
-# 4. Karena A->C->D = 2+1 = 3, lebih kecil dari A->B->D = 4+5 = 9
-# 5. Priority queue memastikan node dengan jarak terkecil diproses duluan
-# 6. Bobot negatif bisa membuat jarak terus berkurang tak terbatas,
-#    sehingga algoritma tidak bisa menemukan jarak optimal yang benar
+# תשובה לניתוח:
+# 1. המרחק הקצר ביותר מ-A ל-B = 4
+# 2. המרחק הקצר ביותר A ל-C = 2
+# 3. המרחק הקצר ביותר A ל-D = 3 (דרך C: 2+1)
+# 4. כי A->C->D = 2+1 = 3, קטן מ-A->B->D = 4+5 = 9
+# 5. תור עדיפות מבטיח שהצומת עם המרחק הקטן ביותר יעובד ראשון
+# 6. משקל שלילי יכול לגרום למרחק להמשיך לרדת ללא הגבלת זמן,
+#    כך שהאלגוריתם לא יכול למצוא את המרחק האופטימלי הנכון

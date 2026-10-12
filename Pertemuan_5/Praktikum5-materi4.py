@@ -1,21 +1,21 @@
 #=================================================
-#Nama = Muhammad Omar Ibrahim
-#NIM = J0403251093
-#Kelas = TPL B1 
+#שם = Muhammad Omar Ibrahim
+#מספר סטודנט = J0403251093
+#כיתה = TPL B1
 #=================================================
 
 # ==========================================================
-# Contoh Backtracking 1: Kombinasi Biner (n)
+# דוגמה 1 לחזרה לאחור: שילוב בינארי (n)
 # ==========================================================
 def biner(n, hasil=""):
-    # Base case: jika panjang string sudah n, cetak hasil
+    # מקרה בסיסי: אם אורך המחרוזת הוא n, הדפס את התוצאה
     if len(hasil) == n:
         print(hasil)
         return
 
-    # Choose + Explore: tambah '0'
+    # בחר + חקור: הוסף '0'
     biner(n, hasil + "0")
-    # Choose + Explore: tambah '1'
+    # בחר + חקור: הוסף '1'
     biner(n, hasil + "1")
 
 biner(3)

@@ -1,13 +1,13 @@
-# Nama : Muhammad Omar Ibrahim
-# NIM : J0403251093
-# Kelas : TPL B1
-# Praktikum 13 - Graph III: Spanning Tree
+# שם : Muhammad Omar Ibrahim
+# מספר סטודנט : J0403251093
+# כיתה : TPL B1
+# מעשי 13 - גרף III: עץ משתרע
 
 # ==========================================================
-# Implementasi Sederhana Algoritma Kruskal
+# יישום פשוט של האלגוריתם של Kruskal
 # ==========================================================
 
-# Daftar edge: (bobot, node1, node2)
+# רשימת קצה: (משקל, node1, node2)
 edges = [
     (1, 'C', 'D'),
     (2, 'A', 'C'),
@@ -16,7 +16,7 @@ edges = [
     (5, 'A', 'D')
 ]
 
-# Mengurutkan edge berdasarkan bobot terkecil
+# ממיין קצוות לפי המשקל הקטן ביותר
 edges.sort()
 
 mst = []
@@ -24,28 +24,28 @@ total_weight = 0
 connected = set()
 
 for weight, u, v in edges:
-    # Memilih edge yang tidak membentuk cycle sederhana
+    # בחר קצוות שאינם יוצרים מחזור פשוט
     if u not in connected or v not in connected:
         mst.append((u, v, weight))
         total_weight += weight
         connected.add(u)
         connected.add(v)
 
-print("Minimum Spanning Tree:")
+print('עץ טווח מינימלי:')
 for edge in mst:
     print(edge)
 
-print("Total bobot =", total_weight)
+print('משקל כולל =', total_weight)
 
 
-# Jawaban Analisis:
-# 1. Edge mana yang dipilih pertama kali?
-# 2. Mengapa edge dengan bobot paling kecil dipilih lebih dahulu?
-# 3. Berapa total bobot MST yang dihasilkan?
-# 4. Mengapa edge tertentu tidak dipilih?
+# תשובה לניתוח:
+# 1. איזה קצה נבחר ראשון?
+# 2. מדוע נבחר ראשון את הקצה בעל המשקל הקטן ביותר?
+# 3. מהו המשקל הכולל של ה-MST המיוצר?
+# 4. מדוע לא נבחר קצה מסוים?
 
-# Jawaban Analisis:
-# 1. Edge yang dipilih pertama kali adalah (1, 'C', 'D') karena memiliki bobot terkecil.
-# 2. Edge dengan bobot paling kecil dipilih lebih dahulu untuk memastikan bahwa total bobot MST yang dihasilkan adalah minimal.
-# 3. Total bobot MST yang dihasilkan adalah 6 (1 + 2 + 3).
-# 4. Edge tertentu tidak dipilih karena akan membentuk cycle atau tidak diperlukan untuk menjaga konektivitas semua node.
+# תשובה לניתוח:
+# 1. הקצה שנבחר ראשון הוא (1, 'C', 'D') מכיוון שיש לו את המשקל הקטן ביותר.
+# 2. הקצה עם המשקל הקטן ביותר נבחר תחילה כדי להבטיח שהמשקל הכולל של ה-MST המתקבל יהיה מינימלי.
+# 3. המשקל הכולל של ה-MST שהתקבל הוא 6 (1 + 2 + 3).
+# 4. קצוות מסוימים אינם נבחרים מכיוון שהם יהוו מחזורים או שאינם נחוצים כדי לשמור על קישוריות של כל הצמתים.

@@ -1,35 +1,35 @@
 #=================================================
-# Nama : Muhammad Omar Ibrahim
-# NIM : J0403251093
-# Latihan 2: Membuat Node Tree
+# שם : Muhammad Omar Ibrahim
+# מספר סטודנט : J0403251093
+# תרגיל 2: יצירת עץ צומת
 #=================================================
 
-#Class Node adalah unit dasar pada tree
+#Class Node היא היחידה הבסיסית בעץ
 class Node:
     def __init__(self,data):
-        self.data = data      # Isi node
-        self.left = None      # Child kiri
-        self.right = None     # Child kanan
+        self.data = data      # מלא את הצמתים
+        self.left = None      # ילד עזב
+        self.right = None     # ילד נכון
 
-#Membuat root
-root = Node('A')          # Root tree
+#יצירת שורש
+root = Node('A')          # עץ שורש
 
-#membuat child level 1
-root.left = Node('B')     # Anak kiri root
-root.right = Node('C')    # Anak kanan root
+#צור ילד רמה 1
+root.left = Node('B')     # שורש ילד שמאל
+root.right = Node('C')    # הילד הנכון של שורש
 
-#membuat child level 2
-root.left.left = Node('D')   # Anak kiri dari B
-root.left.right = Node('E')  # Anak kanan dari B
+#צור ילד רמה 2
+root.left.left = Node('D')   # הילד השמאלי של ב'
+root.left.right = Node('E')  # הילד הנכון של ב'
 
-#menampilkan isi node
-print("Data pada root", root.data)            # Tampil root
-print("Data kiri root", root.left.data)       # Tampil kiri root
-print("Data kanan root", root.right.data)     # Tampil kanan root
-print("Data kiri root kiri", root.left.left.data)    # Tampil node D
-print("Data kanan root kiri", root.left.right.data)   # Tampil node E
+#מציג את תוכן הצומת
+print('נתונים על שורש', root.data)            # הצג שורש
+print('שורש נתונים שמאלה', root.left.data)       # מוצג שורש שמאל
+print('שורש נתונים נכון', root.right.data)     # הצג שורש ימני
+print('נתונים שורש שמאלי שמאלה', root.left.left.data)    # מוצג צומת D
+print('שורש שמאל ימין נתונים', root.left.right.data)   # מוצג צומת E
 
-#pejelasan
+#הסבר
 
-# Cara kerja: root dibuat terlebih dahulu, lalu child kiri dan kanan diisi bertingkat.
-# Setiap print dipakai untuk mengecek isi node dari atas ke bawah dan dari kiri ke kanan.
+# איך זה עובד: קודם יוצרים את השורש, ואז ממלאים בשכבות את הילדים השמאלי והימני.
+# כל הדפסה משמשת לבדיקת תוכן הצומת מלמעלה למטה ומשמאל לימין.

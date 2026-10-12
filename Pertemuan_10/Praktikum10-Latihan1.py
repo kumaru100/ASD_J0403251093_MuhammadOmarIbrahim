@@ -1,33 +1,33 @@
 #=================================================
-# Nama : Muhammad Omar Ibrahim
-# NIM : J0403251093
-# Latihan 1 : BST
+# שם : Muhammad Omar Ibrahim
+# מספר סטודנט : J0403251093
+# תרגיל 1: BST
 #=================================================
 
 class Node:
-    def __init__(self, data):  #Inisialisasi
+    def __init__(self, data):  #אתחול
         self.data = data
         self.right = None
         self.left = None
 
-def insert(root,data): #Menambahkan Node
-    if root is None: #Jika belum ada node, buat node baru
+def insert(root,data): #הוספת צמתים
+    if root is None: #אם אין עדיין צמתים, צור צומת חדש
         return Node(data)
-    
-    if data<root.data:  # Jika data lebih kecil, geser ke kiri
+
+    if data<root.data:  # אם הנתונים קטנים יותר, החלק שמאלה
         root.left = insert(root.left,data)
-    elif data>root.data: #Jika lebih besar, geser ke kanan
+    elif data>root.data: #אם הוא גדול יותר, החלק ימינה
         root.right = insert(root.right,data)
 
     return root
 
-#Mengisi data BST
+#מלא את נתוני BST
 root = None
 data_list = [50,30,70,20,40,50,80]
 
-for data in data_list: #Menambahkan setiap elemen dalam data_list ke dalam Node
+for data in data_list: #מוסיף כל רכיב ב-data_list לצומת
     root = insert(root,data)
 
-print("BST berhasil dibuat")
+print('BST נוצר בהצלחה')
 
 

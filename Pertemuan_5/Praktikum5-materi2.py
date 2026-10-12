@@ -1,28 +1,28 @@
 #=================================================
-#Nama = Muhammad Omar Ibrahim
-#NIM = J0403251093
-#Kelas = TPL B1 
+#שם = Muhammad Omar Ibrahim
+#מספר סטודנט = J0403251093
+#כיתה = TPL B1
 #=================================================
 
 #=================================================
-# Materi Rekursif : Call Stack
-# Tracing Bilangan (masuk-keluar) 
-# Input 3
-# Masuk 1 - 2 - 3 
-# Keluar 3 - 2 - 1
+# חומר רקורסיבי: Call Stack
+# מעקב אחר מספרים (בפנים)
+# קלט 3
+# הזן 1 - 2 - 3
+# מחוץ 3 - 2 - 1
 #=================================================
 
 def hitung(n):
 
-    #Base case
+    #מארז בסיס
     if n==0:
-        print("Selesai")
+        print('בוצע')
         return
 
-    print("Masuk : ", n)
-    hitung(n-1) #recursive case
-    print("Keluar : ", n)
+    print('כניסה:', n)
+    hitung(n-1) #מקרה רקורסיבי
+    print('יציאה:', n)
 
 
-print("=========Program Tracing===========")
-hitung(int(input("Masukkan angka yang mau di tresing : ")))
+print('=========תוכנית מעקב===========')
+hitung(int(input('הזן את המספר שברצונך לבצע טריז:')))

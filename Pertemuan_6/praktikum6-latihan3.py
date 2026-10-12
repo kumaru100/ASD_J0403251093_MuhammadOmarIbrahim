@@ -1,46 +1,37 @@
-# Nama : Muhammad Omar Ibrahim
-# NIM : J0403251093
+# שם : Muhammad Omar Ibrahim
+# מספר סטודנט : J0403251093
 
 def insertion_sort(data):
-    #Loop mulai dari data ke 2 (index array ke 1)
+    #הלולאה מתחילה מהנתונים השניים (אינדקס המערך הראשון)
     for i in range(1,len(data)):
 
-        #Melihat data awal
-        print("Data awal:", data)
+        #הצג נתונים ראשוניים
+        print('נתונים ראשוניים:', data)
         print('='*50)
-        
-        
-        key = data[i]#Simpan nilai yang disisipkan
-        j = i-1 #index elemen terakhir di bagian kiri
-        
-        #Iterasi ke
-        print("Iterasi ke:", i)
-        print("Nilai Key:", key)
-        print("Bagian Kiri (terurut):", data[:i])
-        print("Bagian Kanan (Belum terurut):", data[i:])
 
-        #Geser
+
+        key = data[i]#שמור את הערך שהוכנס
+        j = i-1 #אינדקס של האלמנט האחרון משמאל
+
+        #איטרציה ל
+        print('חזור ל:', i)
+        print('ערך מפתח:', key)
+        print('חלק שמאל (לפי הסדר):', data[:i])
+        print('חלק ימין (לא ממוין):', data[i:])
+
+        #שקופית
         while j >= 0 and key < data[j]:
             data[j+1] = data[j]
             j -= 1
-        #sisipkan key ke posisi yang benar
+        #הכנס את המפתח למצב הנכון
         data[j+1] = key
-        print("Setelah disisipkan:", data)
+        print('לאחר הכנסת:', data)
         print("-"*50)
     return data
 
 data = [5, 2, 4, 6, 1, 3]
-print("Data setelah diurutkan:", insertion_sort(data))
+print('נתונים לאחר מיון:', insertion_sort(data))
 
-'''
-1. Tuliskan isi list setelah iterasi i = 1.
-2. Tuliskan isi list setelah iterasi i = 3.
-3. Berapa kali pergeseran terjadi pada iterasi i = 4?
-'''
+'1. רשום את תוכן הרשימה לאחר איטרציה i = 1.\n2. רשום את תוכן הרשימה לאחר איטרציה i = 3.\n3. כמה פעמים ההיסט מתרחש באיטרציה i = 4?'
 
-'''
-Jawaban Soal:
-1. [2,5,4,6,1,3]
-2. [2,4,5,6,1,3]
-3. 4 kali, karena 1 digeser ke kiri melewati 6,5,4,2
-'''
+'תשובה לשאלה:\n1. [2,5,4,6,1,3]\n2. [2,4,5,6,1,3]\n3. 4 פעמים, כי 1 מוזז שמאלה מעבר ל-6,5,4,2'

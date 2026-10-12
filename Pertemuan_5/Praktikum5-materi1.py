@@ -1,23 +1,23 @@
 #=================================================
-#Nama = Muhammad Omar Ibrahim
-#NIM = J0403251093
-#Kelas = TPL B1 
+#שם = Muhammad Omar Ibrahim
+#מספר סטודנט = J0403251093
+#כיתה = TPL B1
 #=================================================
 
 #=================================================
-# Materi Rekursif : Faktorial
-# Recursive case => 3! = 3x2x1 
-# base case => 0 berhenti
+# חומר רקורסיבי: פקטוריאלי
+# מקרה רקורסיבי => 3! = 3x2x1
+# מקרה בסיס => 0 עצירה
 #=================================================
 
 def faktorial(n):
-    #Base case berhenti ketika n == 0
+    #מקרה בסיסי מפסיק כאשר n == 0
     if n==0:
         return 1
 
-    #recursive case masalah diperkecil jadi  faktorial n-1
+    #בעיית מקרה רקורסיבי מצטמצמת ל-n-1 פקטוריאלית
     return n*faktorial(n-1)
 
 
-print("=========== Penghitung Faktorial =================")
-print("Hasil Faktorial : ", faktorial(int(input("Masukkan angka anda : "))))
+print('=========== מונה גורמים =================')
+print('תוצאות פקטוריאליות:', faktorial(int(input('הכנס את המספרים שלך:'))))

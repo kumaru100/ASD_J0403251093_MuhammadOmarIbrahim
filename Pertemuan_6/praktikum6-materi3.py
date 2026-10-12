@@ -1,33 +1,33 @@
 #===============================================================
-# nama : Muhammad Omar Ibrahim
-# NIM : J0403251093
+# שם: מוחמד עומר איברהים
+# מספר סטודנט : J0403251093
 #===============================================================
 #===============================================================
-#Merge Sort (Ascending)
+#מיזוג מיון (עולה)
 #================================================================
 
 def merge_sort(data):
 
     if len(data)<=1:
         return data
-    
-    #Divide : Membagi data menjadi 2 bagian
-    mid=len(data)//2
-    left=data[:mid]#Slicing kiri
-    right=data[mid:]#Slicing kanan
 
-        #Recursive call
-    left_sorted=merge_sort(left)        
+    #מחלקים: מחלקים את הנתונים ל-2 חלקים
+    mid=len(data)//2
+    left=data[:mid]#חיתוך שמאל
+    right=data[mid:]#חיתוך נכון
+
+        #שיחות רקורסיביות
+    left_sorted=merge_sort(left)
     right_sorted=merge_sort(right)
 
     return merge(left_sorted,right_sorted)
 
-def merge(left,right): 
+def merge(left,right):
     result=[]
     i=0
     j=0
 
-    #Membandingkan elemen kiri dan kanan
+    #משווה בין אלמנטים משמאל לימין
     while i<len(left) and j<len(right):
         if left[i]<=right[j]:
             result.append(left[i])
@@ -36,7 +36,7 @@ def merge(left,right):
             result.append(right[j])
             j+=1
 
-    #Menambahkan sisa eleme jika ada
+    #הוסף את הרכיבים הנותרים אם יש
     result.extend(left[i:])
     result.extend(right[j:])
 
@@ -44,5 +44,5 @@ def merge(left,right):
 
 
 angka=[13,7,28,5,19,36,4]
-print("Data sebelum diurutkan:", angka)
-print("Data setelah diurutkan:", merge_sort(angka))
+print('נתונים לפני מיון:', angka)
+print('נתונים לאחר מיון:', merge_sort(angka))

@@ -1,7 +1,7 @@
-# Nama : Muhammad Omar Ibrahim
-# NIM : J0403251093
-# Kelas : TPL B1
-# Praktikum 13 - Graph III: Spanning Tree
+# שם : Muhammad Omar Ibrahim
+# מספר סטודנט : J0403251093
+# כיתה : TPL B1
+# מעשי 13 - גרף III: עץ משתרע
 
 import heapq
 
@@ -40,8 +40,8 @@ def prim(graph, start):
 
 mst, total = prim(graph, 'A')
 
-print("Minimum Spanning Tree:")
+print('עץ טווח מינימלי:')
 for edge in mst:
     print(edge)
 
-print("Total bobot =", total)
+print('משקל כולל =', total)

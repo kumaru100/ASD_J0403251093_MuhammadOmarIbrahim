@@ -1,78 +1,78 @@
-# Nama : Muhammad Omar Ibrahim
-# NIM : J0403251093
-# Kelas : TPL B1
-# Praktikum 13 - Graph III: Spanning Tree
+# שם : Muhammad Omar Ibrahim
+# מספר סטודנט : J0403251093
+# כיתה : TPL B1
+# מעשי 13 - גרף III: עץ משתרע
 
 # ==========================================================
-# Program Minimum Spanning Tree menggunakan Algoritma Kruskal
-# Kasus 1: Jaringan Jalan Antar Kota
+# תוכנית עץ מינימלית באמצעות אלגוריתם Kruskal
+# מקרה 1: רשת דרכים בין עירונית
 # ==========================================================
 
-# Representasi weighted graph dalam bentuk daftar edge.
-# Format edge: (bobot, kota1, kota2)
+# ייצוג גרף משוקלל בצורה של רשימה של קצוות.
+# פורמט קצה: (משקל, עיר1, עיר2)
 edges = [
-    (5, 'Bogor', 'Jakarta'),
-    (2, 'Bogor', 'Depok'),
-    (3, 'Depok', 'Jakarta'),
-    (6, 'Jakarta', 'Bandung'),
-    (4, 'Depok', 'Bandung')
+    (5, 'בוגור', "ג'קרטה"),
+    (2, 'בוגור', 'דפוק'),
+    (3, 'דפוק', "ג'קרטה"),
+    (6, "ג'קרטה", 'בנדונג'),
+    (4, 'דפוק', 'בנדונג')
 ]
 
-# Mengurutkan edge berdasarkan bobot terkecil.
-# Dalam Kruskal, edge dengan bobot terkecil diproses lebih dulu.
+# ממיין קצוות לפי המשקל הקטן ביותר.
+# בקרוסקל, הקצה בעל המשקל הקטן ביותר מעובד ראשון.
 edges.sort()
 
-# mst digunakan untuk menyimpan edge yang terpilih.
+# mst משמש לאחסון הקצה שנבחר.
 mst = []
 
-# total_weight digunakan untuk menghitung total bobot MST.
+# total_weight משמש לחישוב המשקל הכולל של ה-MST.
 total_weight = 0
 
-# connected digunakan untuk menyimpan node/kota yang sudah terhubung.
+# מחובר משמש לאחסון צמתים/ערים שכבר מחוברות.
 connected = set()
 
-# Memproses setiap edge dari bobot terkecil ke terbesar.
+# עבדו כל קצה מהמשקל הקטן ביותר למשקל הגדול ביותר.
 for weight, u, v in edges:
-    # Edge dipilih jika salah satu kota belum terhubung.
-    # Tujuannya agar tidak membentuk cycle sederhana.
+    # Edge נבחר אם אחת מהערים עדיין לא מחוברת.
+    # המטרה היא לא ליצור מעגל פשוט.
     if u not in connected or v not in connected:
         mst.append((u, v, weight))
         total_weight += weight
         connected.add(u)
         connected.add(v)
 
-# Menampilkan edge-edge yang masuk ke MST.
-print("Minimum Spanning Tree:")
+# מציג את הקצוות הנכנסים ל-MST.
+print('עץ טווח מינימלי:')
 for edge in mst:
     print(edge)
 
-# Menampilkan total bobot minimum.
-print("Total bobot minimum =", total_weight)
+# מציג את המשקל הכולל המינימלי.
+print('משקל כולל מינימלי =', total_weight)
 
 
 # ==========================================================
-# Pertanyaan Analisis:
+# שאלות ניתוח:
 # ==========================================================
 
-# Jawaban Analisis:
-# 1. Kasus yang dipilih adalah Kasus 1, yaitu jaringan jalan
-# antar kota yang menghubungkan Bogor, Jakarta, Depok,
-# dan Bandung.
+# תשובה לניתוח:
+# 1. המקרה שנבחר הוא מקרה 1, דהיינו רשת הכבישים
+# בין ערים המקשרות בין בוגור, ג'קרטה, דפוק,
+# ובנדונג.
 
-# 2. Algoritma yang digunakan adalah algoritma Kruskal.
-# Algoritma ini bekerja dengan cara mengurutkan semua edge
-# berdasarkan bobot terkecil, lalu memilih edge yang tidak
-# membentuk cycle.
+# 2. האלגוריתם בו נעשה שימוש הוא אלגוריתם Kruskal.
+# אלגוריתם זה פועל על ידי מיון כל הקצוות
+# מבוסס על המשקל הקטן ביותר, ואז בוחר קצוות שלא
+# יצירת מחזור.
 
-# 3. Edge yang dipilih dalam MST adalah:
-# Bogor - Depok = 2
-# Depok - Jakarta = 3
-# Depok - Bandung = 4
+# 3. הקצוות שנבחרו ב-MST הם:
+# בוגור - דפוק = 2
+# דפוק - ג'קרטה = 3
+# דפוק - בנדונג = 4
 
-# 4. Total bobot MST adalah:
+# 4. המשקל הכולל של MST הוא:
 # 2 + 3 + 4 = 9
 
-# 5. Edge Bogor - Jakarta tidak dipilih karena setelah Bogor,
-# Depok, dan Jakarta sudah terhubung, edge tersebut akan
-# membentuk cycle. Edge Jakarta - Bandung juga tidak dipilih
-# karena bobotnya lebih besar dibandingkan Depok - Bandung.
+# 5. אדג' בוגור - ג'קרטה לא נבחרה כי אחרי בוגור,
+# Depok וג'קרטה כבר מחוברים, הקצה יהיה
+# יצירת מחזור. אדג' ג'קרטה - בנדונג גם לא נבחרה
+# כי המשקל גדול יותר מדפוק - בנדונג.

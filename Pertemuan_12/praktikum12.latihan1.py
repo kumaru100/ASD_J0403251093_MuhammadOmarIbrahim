@@ -1,45 +1,45 @@
-# ========================================================== 
-# Latihan 1: Weighted Graph dan Perhitungan Jalur 
-# Nama : Muhammad Omar Ibrahim
-# Nim: J0403251093
-# ========================================================== 
+# ==========================================================
+# תרגיל 1: גרף משוקלל וחישוב נתיב
+# שם : Muhammad Omar Ibrahim
+# מספר סטודנט: J0403251093
+# ==========================================================
 
-# Representasi weighted graph menggunakan dictionary bersarang 
-# Setiap node adalah key dengan value berupa dict yang berisi node tetangga dan bobot edge-nya
-graph = { 
-    'A': {'B': 4, 'C': 2},  # Dari A bisa ke B (bobot 4) atau ke C (bobot 2)
-    'B': {'D': 5},          # Dari B bisa ke D (bobot 5)
-    'C': {'D': 1},          # Dari C bisa ke D (bobot 1)
-    'D': {}                 # D adalah node tujuan, tidak ada edge keluar
-} 
+# ייצוג גרף משוקלל באמצעות מילונים מקוננים
+# כל צומת הוא מפתח עם ערך בצורה של dict המכיל צמתים שכנים ומשקולות הקצוות שלהם
+graph = {
+    'A': {'B': 4, 'C': 2},  # מ-A אפשר לעבור ל-B (משקל 4) או ל-C (משקל 2)
+    'B': {'D': 5},          # מ-B אתה יכול ללכת ל-D (משקל 5)
+    'C': {'D': 1},          # מ-C אתה יכול לעבור ל-D (משקל 1)
+    'D': {}                 # D הוא צומת היעד, אין קצוות יוצאים
+}
 
-# Menghitung dua kemungkinan jalur dari A ke D 
-# Jalur 1: A -> B -> D
+# חשב שני נתיבים אפשריים מ-A ל-D
+# נתיב 1: A -> B -> D
 jalur_1 = graph['A']['B'] + graph['B']['D']  # 4 + 5 = 9
-# Jalur 2: A -> C -> D
+# נתיב 2: A -> C -> D
 jalur_2 = graph['A']['C'] + graph['C']['D']  # 2 + 1 = 3
 
-# Menampilkan total bobot untuk masing-masing jalur
-print("Jalur 1: A -> B -> D =", jalur_1) 
-print("Jalur 2: A -> C -> D =", jalur_2) 
+# מציג את המשקל הכולל עבור כל נתיב
+print('נתיב 1: A -> B -> D =', jalur_1)
+print('נתיב 2: A -> C -> D =', jalur_2)
 
-# Membandingkan dan menentukan jalur terpendek
-if jalur_1 < jalur_2: 
-    print("Jalur terpendek adalah A -> B -> D") 
-else: 
-    print("Jalur terpendek adalah A -> C -> D") 
+# השוו וקבעו את הדרך הקצרה ביותר
+if jalur_1 < jalur_2:
+    print('הדרך הקצרה ביותר היא A -> B -> D')
+else:
+    print('הדרך הקצרה ביותר היא A -> C -> D')
 
-# Pertanyaan Analisis: 
-# 1. Berapa total bobot jalur A -> B -> D? 
-# 2. Berapa total bobot jalur A -> C -> D? 
-# 3. Jalur mana yang dipilih sebagai jalur terpendek? 
-# 4. Mengapa jalur terpendek tidak selalu ditentukan dari jumlah edge yang 
-#paling sedikit? 
+# שאלות ניתוח:
+# 1. מהו המשקל הכולל של נתיב A -> B -> D?
+# 2. מהו המשקל הכולל של נתיב A -> C -> D?
+# 3. איזה נתיב נבחר כשביל הקצר ביותר?
+# 4. מדוע הדרך הקצרה ביותר לא תמיד נקבעת לפי מספר הקצוות?
+#לפחות?
 
 
-# Jawaban Analisis:
-# 1. Total bobot jalur A -> B -> D = 4 + 5 = 9
-# 2. Total bobot jalur A -> C -> D = 2 + 1 = 3
-# 3. Jalur terpendek: A -> C -> D (bobot 3 < 9)
-# 4. Karena jalur terpendek ditentukan dari total bobot, bukan jumlah edge.
-#    Edge sedikit belum tentu lebih murah jika bobotnya besar.
+# תשובה לניתוח:
+# 1. משקל כולל של נתיב A -> B -> D = 4 + 5 = 9
+# 2. משקל כולל של נתיב A -> C -> D = 2 + 1 = 3
+# 3. הנתיב הקצר ביותר: A -> C -> D (משקל 3 < 9)
+# 4. מכיוון שהדרך הקצרה ביותר נקבעת מהמשקל הכולל, לא ממספר הקצוות.
+#    קצה קטן אינו בהכרח זול יותר אם המשקל גדול.

@@ -1,5 +1,5 @@
-# Nama : Muhammad Omar Ibrahim
-# NIM : J0403251093
+# שם : Muhammad Omar Ibrahim
+# מספר סטודנט : J0403251093
 
 
 def insertion_sort(data):
@@ -11,35 +11,27 @@ def insertion_sort(data):
             j -= 1
         data[j + 1] = key
     return data
-'''
-Soal:
-1. Lengkapi kondisi agar menjadi sorting ascending.
-2. Ubah agar menjadi descending
-'''
+'שאלה:\n1. השלם את התנאים למיון עולה.\n2. שנה אותו ליורד'
 
-'''
-Jawaban:
-1. Ubah kondisi while menjadi data[j] > key untuk ascending.
-2. Ubah kondisi while menjadi data[j] < key untuk descending.
-'''
-#1. Ascending
+'תשובה:\n1. שנה את תנאי ה-while ל-data[j] > מקש לעלייה.\n2. שנה את תנאי ה-while ל-data[j] < מקש לירידה.'
+#1. עולה
 # def insertion_sort(data):
 #     for i in range(1, len(data)):
-#         key = data[i]
+#         מפתח = נתונים[i]
 #         j = i - 1
 #         while j >= 0 and data[j] > key: #Ascending
-#             data[j + 1] = data[j]
+#             נתונים[j + 1] = נתונים[j]
 #             j -= 1
-#     data[j + 1] = key
+#     data[j + 1] = מפתח
 #     return data
 
-# #2. Descending
+# #2. יורד
 # def insertion_sort_descending(data):
 #     for i in range(1, len(data)):
-#         key = data[i]
+#         מפתח = נתונים[i]
 #         j = i - 1
 #         while j >= 0 and data[j] < key: #Descending
-#             data[j + 1] = data[j]
+#             נתונים[j + 1] = נתונים[j]
 #             j -= 1
-#     data[j + 1] = key
+#     data[j + 1] = מפתח
 #     return data

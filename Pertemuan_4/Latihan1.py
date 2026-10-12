@@ -1,64 +1,64 @@
 #================================================
-# Nama : Muhammad Omar Ibrahim
-# NIM : J0403251093
+# שם : Muhammad Omar Ibrahim
+# מספר סטודנט : J0403251093
 #================================================
 
 #================================================
-# Implementasi Dasar : Queue berbasis linked list
+# יישום בסיסי: תור מבוסס על רשימה מקושרת
 #================================================
 
 class Node:
-    def __init__(self, data): #konstruktor untuk inisialisasi node
-        self.data = data #menyimpan nilai data
-        self.next = None #pointer ke node berikutnya
+    def __init__(self, data): #בנאי לאתחול צומת
+        self.data = data #לאחסן ערכי נתונים
+        self.next = None #מצביע לצומת הבא
 
-#Queue dengan 2 pointer : front dan rear
+#תור עם 2 מצביעים: מלפנים ומאחור
 class QueueLL:
     def __init__(self):
-        self.front = None #Node paling depan
-        self.rear = None #Node paling belakang
-    
+        self.front = None #הצומת הקדמי
+        self.rear = None #הצומת האחורי ביותר
+
     def is_empty(self):
         return self.front is None
-    
+
     def enqueue(self, data):
-        #Menambah data di belakang (tail)
+        #הוספת נתונים מאחור (זנב)
         nodeBaru = Node(data)
 
-        #Jika queue kosong, front dan rear menunjuk ke node yang sama
+        #אם התור ריק, מלפנים ומאחור מצביעים על אותו צומת
         if self.is_empty():
             self.front = nodeBaru
             self.rear = nodeBaru
             return
-        #Rear pindah ke node baru
+        #האחורי עובר לצומת חדש
         self.rear.next = nodeBaru
         self.rear = nodeBaru
-        
-    def dequeue(self):
-        #menghapus data dari depan (head)
 
-        #1)peek/lihat data paling depan
+    def dequeue(self):
+        #מחק נתונים מהחזית (הראש)
+
+        #1) הציצו/הסתכלו על הנתונים הקדמיים
         data_terhapus = self.front.data
 
-        #2)geser front ke node berikutnya
+        #2) העבר את החזית לצומת הבא
         self.front = self.front.next
 
-        #3)Jika setelah geser front menjadi None, berarti queue kosong
-        #maka rear juga None
+        #3) אם לאחר החלקה קדמית הוא הופך ללא, זה אומר שהתור ריק
+        #ואז האחורי הוא גם ללא
         if self.front is None:
             self.rear = None
 
-    
+
     def tampilkan(self):
-        #Menampilkan isi queue dari front ke rear
+        #מציג את תוכן התור מלפנים לאחור
         current = self.front
-        print("Front", end=" -> ")
+        print('חזית', end=" -> ")
         while current is not None:
             print(current.data, end="->")
             current = current.next
-        print("None - Rear di node terakhir")
+        print('אין - אחורי בצומת האחרון')
 
-#Instantiasi objek class queuell
+#מופע של אובייקטים בתור כיתה
 q=QueueLL()
 q.enqueue("A")
 q.enqueue("B")

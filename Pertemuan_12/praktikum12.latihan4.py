@@ -1,71 +1,71 @@
-# ========================================================== 
-# Latihan 4: Studi Kasus Jalur Terpendek Lokasi Kampus 
-# Algoritma: Dijkstra 
-# Nama : Muhammad Omar Ibrahim
-# Nim: J0403251093
-# ========================================================== 
-import heapq  # Library untuk priority queue (heap)
+# ==========================================================
+# תרגיל 4: מיקום קמפוס המקרה למסלול הקצר ביותר
+# אלגוריתם: דיקסטרה
+# שם : Muhammad Omar Ibrahim
+# מספר סטודנט: J0403251093
+# ==========================================================
+import heapq  # ספרייה לתור עדיפות (ערימה)
 
-# Graph lokasi kampus 
-# Bobot menunjukkan waktu tempuh dalam menit 
-# Struktur: {node: {tetangga: jarak, ...}, ...}
-graph = { 
-'Gerbang': {'Perpustakaan': 6, 'Kantin': 2}, 
-'Perpustakaan': {'Lab': 3}, 
-'Kantin': {'Lab': 4, 'Aula': 7}, 
-'Lab': {'Aula': 1}, 
-'Aula': {} 
-} 
+# גרף מיקום הקמפוס
+# המשקל מציין את זמן הנסיעה בדקות
+# מבנה: {צומת: {שכן: מרחק, ...}, ...}
+graph = {
+'שער': {'ספריה': 6, 'קנטינה': 2},
+'ספריה': {'מעבדה': 3},
+'קנטינה': {'מעבדה': 4, 'אולם': 7},
+'מעבדה': {'אולם': 1},
+'אולם': {}
+}
 def dijkstra(graph, start):
-    # Inisialisasi jarak semua node ke infinity, kecuali start node = 0
+    # אתחול המרחק של כל הצמתים לאינסוף, מלבד צומת התחלה = 0
     distances = {node: float('inf') for node in graph}
     distances[start] = 0
-    
-    # Priority queue untuk menyimpan (jarak, node)
-    # Digunakan untuk memilih node dengan jarak minimum berikutnya
+
+    # תור עדיפות לחנות (מרחק, צומת)
+    # משמש לבחירת הצומת עם המרחק המינימלי הבא
     priority_queue = [(0, start)]
-    
+
     while priority_queue:
-        # Ambil node dengan jarak terkecil dari priority queue
+        # קח את הצומת עם המרחק הקטן ביותר מתור העדיפות
         current_distance, current_node = heapq.heappop(priority_queue)
-        
-        # Skip jika kita sudah menemukan jalur lebih pendek ke node ini
+
+        # דלג אם מצאנו נתיב קצר יותר לצומת זה
         if current_distance > distances[current_node]:
             continue
-        
-        # Cek semua tetangga dari node saat ini
+
+        # בדוק את כל השכנים של הצומת הנוכחי
         for neighbor, weight in graph[current_node].items():
-            # Hitung jarak baru melalui current_node
+            # חשב את המרחק החדש באמצעות current_node
             distance = current_distance + weight
-            
-            # Jika jarak baru lebih pendek, update jarak dan tambah ke priority queue
+
+            # אם המרחק החדש קצר יותר, עדכן את המרחק והוסף אותו לתור העדיפות
             if distance < distances[neighbor]:
                 distances[neighbor] = distance
                 heapq.heappush(priority_queue, (distance, neighbor))
-    
-    # Kembalikan dictionary dengan jarak terpendek ke semua node
-    return distances 
-# Jalankan algoritma Dijkstra dari node 'Gerbang'
-hasil = dijkstra(graph, 'Gerbang')
 
-# Tampilkan hasil jarak terpendek dari Gerbang ke semua lokasi
-print("Jarak terpendek dari Gerbang Kampus:")
+    # החזר את המילון עם המרחק הקצר ביותר לכל הצמתים
+    return distances
+# הפעל את האלגוריתם של Dijkstra מהצומת 'שער'
+hasil = dijkstra(graph, 'שער')
+
+# הצג את התוצאות של המרחק הקצר ביותר מהשער לכל המיקומים
+print('המרחק הקצר ביותר משער הקמפוס:')
 for lokasi, jarak in hasil.items():
-    # Cetak setiap lokasi dengan jarak terdekatnya
-    print(lokasi, "=", jarak, "menit")
+    # הדפס כל מיקום עם המרחק הקרוב ביותר שלו
+    print(lokasi, "=", jarak, 'דקות')
 
 
-# Pertanyaan Analisis: 
-# 1. Lokasi mana yang paling dekat dari Gerbang? 
-# 2. Berapa waktu tempuh terpendek dari Gerbang ke Aula? 
-# 3. Apakah jalur langsung selalu menghasilkan jarak paling kecil? Jelaskan. 
-# 4. Mengapa Dijkstra cocok digunakan pada kasus lokasi kampus ini? 
+# שאלות ניתוח:
+# 1. איזה מיקום הכי קרוב לשער?
+# 2. מהו זמן הנסיעה הקצר ביותר מהשער לאולם?
+# 3. האם הנתיב הישיר מייצר תמיד את המרחק הקטן ביותר? לְהַסבִּיר.
+# 4. מדוע Dijkstra מתאימה לשימוש במקרה זה של מיקום הקמפוס?
 
-# Jawaban Analisis:
-# 1. Lokasi paling dekat dari Gerbang adalah Kantin (2 menit)
-# 2. Waktu tempuh terpendek Gerbang ke Aula = 7 menit
-#    (Gerbang -> Kantin -> Lab -> Aula = 2+4+1)
-# 3. Tidak selalu. Contoh: Gerbang -> Aula langsung tidak ada,
-#    jalur terpendek justru lewat beberapa node dengan total bobot lebih kecil
-# 4. Karena semua bobot (waktu tempuh) bernilai positif,
-#    sehingga Dijkstra bisa bekerja optimal dan efisien.
+# תשובה לניתוח:
+# 1. המיקום הקרוב ביותר לשער הוא הקנטינה (2 דקות)
+# 2. זמן הנסיעה הקצר ביותר משער לאולם = 7 דקות
+#    (שער -> קנטינה -> מעבדה -> אולם = 2+4+1)
+# 3. לא תמיד. דוגמה: שער -> אולם ישיר חסר,
+#    הנתיב הקצר ביותר עובר למעשה דרך מספר צמתים עם משקל כולל קטן יותר
+# 4. מכיוון שכל המשקלים (זמני הנסיעה) חיוביים,
+#    כדי שדיקסטרה תוכל לעבוד בצורה מיטבית ויעילה.

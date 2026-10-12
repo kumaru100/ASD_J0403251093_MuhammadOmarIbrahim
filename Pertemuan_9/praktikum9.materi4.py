@@ -1,40 +1,40 @@
 #=================================================
-# Nama : Muhammad Omar Ibrahim
-# NIM : J0403251093
-# Latihan 4: Membuat binary search tree
+# שם : Muhammad Omar Ibrahim
+# מספר סטודנט : J0403251093
+# תרגיל 4: צור עץ חיפוש בינארי
 #=================================================
 class Node:
     def __init__(self,data):
-        self.data = data      # Isi node
-        self.left = None      # Child kiri
-        self.right = None     # Child kanan
+        self.data = data      # מלא את הצמתים
+        self.left = None      # ילד עזב
+        self.right = None     # ילד נכון
 
-#Membuat fungsi inorder : left -> root -> right
+#צור פונקציית סדר: שמאל -> שורש -> ימין
 def inorder(node):
     if node is not None:
-        inorder(node.left)          # Kunjungi kiri
-        print(node.data, end=" ")  # Kunjungi node
-        inorder(node.right)         # Kunjungi kanan
+        inorder(node.left)          # בקר משמאל
+        print(node.data, end=" ")  # בקר בצמתים
+        inorder(node.right)         # בקר נכון
 
-#Membuat tree
-root = Node('A')          # Root tree
+#צור עץ
+root = Node('A')          # עץ שורש
 
-#membuat child level 1
-root.left = Node('B')     # Anak kiri root
-root.right = Node('C')    # Anak kanan root
+#צור ילד רמה 1
+root.left = Node('B')     # שורש ילד שמאל
+root.right = Node('C')    # הילד הנכון של שורש
 
-#membuat child level 2
-root.left.left = Node('D')   # Anak kiri B
-root.left.right = Node('E')  # Anak kanan B
+#צור ילד רמה 2
+root.left.left = Node('D')   # השאיר ילד ב
+root.left.right = Node('E')  # הילד הנכון של ב'
 
 
-print("Hasil tranversal inorder: ")  # Judul hasil
-inorder(root)                         # Jalankan inorder
+print('תוצאות רוחביות לא מסודרות:')  # כותרת התוצאה
+inorder(root)                         # רץ לפי הסדר
 
-#Penjelasan:
-#1. Baca cabang kiri terlebih dahulu.
-#2. Lalu baca node sekarang.
-#3. Terakhir baca cabang kanan.
+#הסבר:
+#1. קרא תחילה את הענף השמאלי.
+#2. לאחר מכן קרא את הצומת הנוכחי.
+#3. סוף סוף קרא את הענף הנכון.
 
-# Cara kerja: inorder menelusuri subtree kiri, lalu node, lalu subtree kanan secara rekursif.
-# Urutan tampilnya berguna untuk melihat data sesuai posisi kiri ke kanan pada tree.
+# איך זה עובד: אין-סדר חוצה את תת-העץ השמאלי, לאחר מכן את הצמתים, ואז את תת-העץ הימני באופן רקורסיבי.
+# סדר ההופעה שימושי לצפייה בנתונים לפי מיקום משמאל לימין בעץ.

@@ -1,34 +1,34 @@
-# Nama : Muhammad Omar Ibrahim
-# NIM : J0403251093
+# שם : Muhammad Omar Ibrahim
+# מספר סטודנט : J0403251093
 
 # ==========================================================
-# Latihan 3: Mencari Nilai Maksimum (Rekursi pada List)
+# תרגיל 3: מציאת הערך המקסימלי (רקורסיה ברשימה)
 # ==========================================================
 
 def cari_maks(data, index=0):
-    
-    # Base case (kondisi berhenti)
-    # Jika index sudah berada di elemen terakhir list,
-    # maka langsung kembalikan nilai elemen tersebut
-    # karena tidak ada lagi yang bisa dibandingkan.
+
+    # מקרה בסיס (מצב עצירה)
+    # אם האינדקס כבר נמצא ברכיב האחרון של הרשימה,
+    # לאחר מכן החזר מיד את הערך של אותו אלמנט
+    # כי אין מה להשוות.
     if index == len(data) - 1:
         return data[index]
-    
-    # Recursive case
-    # Fungsi memanggil dirinya sendiri untuk mencari
-    # nilai maksimum dari sisa list (index + 1 sampai akhir)
+
+    # מקרה רקורסיבי
+    # הפונקציה קוראת לעצמה לחפש
+    # הערך המקסימלי של הרשימה הנותרת (אינדקס + 1 עד הסוף)
     maks_sisa = cari_maks(data, index + 1)
-    
-    # Setelah mendapatkan maksimum dari sisa list,
-    # bandingkan dengan elemen saat ini (data[index])
+
+    # לאחר קבלת המקסימום מהרשימה שנותרה,
+    # השוואה עם האלמנט הנוכחי (נתונים[אינדקס])
     if data[index] > maks_sisa:
-        return data[index]   # Jika elemen sekarang lebih besar
+        return data[index]   # אם האלמנט הנוכחי גדול יותר
     else:
-        return maks_sisa     # Jika maksimum sisa lebih besar
+        return maks_sisa     # אם השארית המקסימלית גדולה יותר
 
 
-# Data yang akan dicari nilai maksimumnya
+# הנתונים שעבורם יחפשו את הערך המקסימלי
 angka = [3, 7, 2, 9, 5]
 
-# Pemanggilan fungsi
-print("Nilai maksimum:", cari_maks(angka))
+# קריאת פונקציה
+print('ערך מקסימלי:', cari_maks(angka))

@@ -1,32 +1,32 @@
-# Nama : Muhammad Omar Ibrahim
-# NIM : J0403251093
+# שם : Muhammad Omar Ibrahim
+# מספר סטודנט : J0403251093
 
 # ==========================================================
-# Latihan 2: Tracing Rekursi
+# תרגיל 2: מעקב אחר רקורסיה
 # ==========================================================
 
 def countdown(n):
-    
-    # Base case (kondisi berhenti)
-    # Jika n sudah 0, cetak "Selesai"
-    # lalu hentikan fungsi dengan return
+
+    # מקרה בסיס (מצב עצירה)
+    # אם n כבר 0, הדפס "בוצע"
+    # ואז עצור את הפונקציה עם החזרה
     if n == 0:
-        print("Selesai")
+        print('בוצע')
         return
-    
-    # Bagian ini dijalankan SAAT MASUK ke fungsi
-    # sebelum pemanggilan rekursif berikutnya
+
+    # סעיף זה מבוצע כאשר נכנסים לפונקציה
+    # לפני השיחה הרקורסיבית הבאה
     print("Masuk:", n)
-    
-    # Pemanggilan rekursif
-    # Fungsi memanggil dirinya sendiri
-    # dengan nilai n yang lebih kecil (n - 1)
+
+    # קריאה רקורסיבית
+    # הפונקציה קוראת לעצמה
+    # עם ערך n קטן יותר (n - 1)
     countdown(n - 1)
-    
-    # Bagian ini dijalankan SAAT KELUAR dari fungsi
-    # yaitu setelah pemanggilan rekursif selesai
+
+    # סעיף זה מבוצע בעת יציאה מהפונקציה
+    # כלומר לאחר סיום השיחה הרקורסיבית
     print("Keluar:", n)
 
 
-# Memulai proses rekursi
+# התחלת תהליך הרקורסיה
 countdown(3)

@@ -1,26 +1,26 @@
-# Nama : Muhammad Omar Ibrahim
-# NIM : J0403251093
+# שם : Muhammad Omar Ibrahim
+# מספר סטודנט : J0403251093
 
 # ==========================================================
-# Studi Kasus: Generator PIN 3 Digit (0–2)
+# תיאור מקרה: מחולל PIN בן 3 ספרות (0–2)
 # ==========================================================
 
 def buat_pin(panjang, hasil=""):
-    
-    # Base case
-    # Jika panjang string 'hasil' sudah sama dengan panjang PIN,
-    # maka PIN sudah lengkap dan siap dicetak
+
+    # מארז בסיס
+    # אם אורך מחרוזת 'התוצאה' זהה לאורך ה-PIN,
+    # אז ה-PIN שלם ומוכן להדפסה
     if len(hasil) == panjang:
         print("PIN:", hasil)
         return
-    
-    # Recursive case
-    # Coba setiap kemungkinan angka (choose)
+
+    # מקרה רקורסיבי
+    # נסה כל מספר אפשרי (בחר)
     for angka in ["0", "1", "2"]:
-        
-        # Explore → tambahkan angka ke hasil saat ini
+
+        # חקור ← הוסף מספרים לתוצאות הנוכחיות
         buat_pin(panjang, hasil + angka)
 
 
-# Membuat PIN 3 digit
+# צור PIN בן 3 ספרות
 buat_pin(3)

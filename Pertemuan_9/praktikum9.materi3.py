@@ -1,44 +1,44 @@
 #=================================================
-# Nama : Muhammad Omar Ibrahim
-# NIM : J0403251093
-# Latihan 2: Membuat binary search tree
+# שם : Muhammad Omar Ibrahim
+# מספר סטודנט : J0403251093
+# תרגיל 2: צור עץ חיפוש בינארי
 #=================================================
 
-#Class Node adalah unit dasar pada tree
+#Class Node היא היחידה הבסיסית בעץ
 class Node:
     def __init__(self,data):
-        self.data = data      # Isi node
-        self.left = None      # Child kiri
-        self.right = None     # Child kanan
+        self.data = data      # מלא את הצמתים
+        self.left = None      # ילד עזב
+        self.right = None     # ילד נכון
 
-#Fungsi pre order traversal
+#פונקציית מעבר בהזמנה מראש
 def preorder(node):
     if node is not None:
-        print(node.data, end=" ")  # Kunjungi node
-        preorder(node.left)         # Lanjut kiri
-        preorder(node.right)        # Lanjut kanan
+        print(node.data, end=" ")  # בקר בצמתים
+        preorder(node.left)         # המשך שמאלה
+        preorder(node.right)        # המשך ימינה
 
 
-#Membuat tree
-root = Node('A')          # Root tree
+#צור עץ
+root = Node('A')          # עץ שורש
 
-#membuat child level 1
-root.left = Node('B')     # Anak kiri root
-root.right = Node('C')    # Anak kanan root
+#צור ילד רמה 1
+root.left = Node('B')     # שורש ילד שמאל
+root.right = Node('C')    # הילד הנכון של שורש
 
-#membuat child level 2
-root.left.left = Node('D')   # Anak kiri B
-root.left.right = Node('E')   # Anak kanan B
+#צור ילד רמה 2
+root.left.left = Node('D')   # השאיר ילד ב
+root.left.right = Node('E')   # הילד הנכון של ב'
 
 
-#Menjalankan tranversal preorder
-print("Hasil tranversal preorder: ")  # Judul hasil
-preorder(root)                         # Jalankan preorder
+#הפעלת עסקאות הזמנה מראש
+print('תוצאות עסקה בהזמנה מראש:')  # כותרת התוצאה
+preorder(root)                         # הפעל הזמנות מראש
 
-#Penjelasan:
-#1. Baca node sekarang dulu.
-#2. Lanjut ke cabang kiri.
-#3. Terakhir ke cabang kanan.
+#הסבר:
+#1. קרא תחילה את הצומת הנוכחי.
+#2. ממשיכים לסניף השמאלי.
+#3. לבסוף לכו לסניף הימני.
 
-# Cara kerja: preorder selalu memproses node saat ini lebih dulu, lalu rekursif ke kiri dan kanan.
-# Hasilnya urutan kunjungan mengikuti pola root -> kiri -> kanan.
+# איך זה עובד: הזמנה מראש תמיד מעבדת תחילה את הצומת הנוכחי, ואז רקורסיבית שמאלה וימינה.
+# התוצאה היא שסדר הביקורים עוקב אחר שורש הדפוס -> שמאל -> ימין.

@@ -1,46 +1,46 @@
-# Nama : Muhammad Omar Ibrahim
-# NIM : J0403251093
+# שם : Muhammad Omar Ibrahim
+# מספר סטודנט : J0403251093
 
-graph = { 
-'Rumah': ['Sekolah', 'Toko'], 
-'Sekolah': ['Perpustakaan'], 
-'Toko': ['Pasar'], 
-'Perpustakaan': [], 
-'Pasar': [] 
-} 
+graph = {
+'בית': ['בית ספר', 'חנות'],
+'בית ספר': ['ספריה'],
+'חנות': ['שוק'],
+'ספריה': [],
+'שוק': []
+}
 
-from collections import deque 
-def bfs(graph, start): 
-    visited = set() 
-    queue = deque([start]) 
-    visited.add(start) 
-    while queue: 
-        node = queue.popleft() 
-        print(node, end=" ") 
-        for neighbor in graph[node]: 
-            if neighbor not in visited: 
-                visited.add(neighbor) 
-                queue.append(neighbor) 
+from collections import deque
+def bfs(graph, start):
+    visited = set()
+    queue = deque([start])
+    visited.add(start)
+    while queue:
+        node = queue.popleft()
+        print(node, end=" ")
+        for neighbor in graph[node]:
+            if neighbor not in visited:
+                visited.add(neighbor)
+                queue.append(neighbor)
 
-print("BFS dari Rumah:") 
-bfs(graph, 'Rumah') 
+print('BFS מהבית:')
+bfs(graph, 'בית')
 
-#..................................... 
-#Pertanyaan Analisis 
-#1. Node mana yang dikunjungi pertama?  
-#2. Mengapa BFS cocok untuk mencari jalur terdekat?  
-#3. Apa perbedaan urutan BFS jika struktur graph diubah? 
+#.....................................
+#שאלות ניתוח
+#1. באיזה צומת מבקרים ראשון?
+#2. מדוע BFS מתאים למציאת הנתיב הקרוב?
+#3. מה ההבדל בסדר ה-BFS אם מבנה הגרף משתנה?
 
-#Jawab:
-#1. Node yang dikunjungi pertama adalah 'Rumah' karena itu adalah titik awal (start node).
-#   BFS selalu dimulai dari node yang kita tentukan sebagai awal pencarian.
+#תשובה:
+#1. הצומת הראשון לביקור הוא 'בית' מכיוון שהוא נקודת ההתחלה.
+#   BFS תמיד מתחיל מהצומת שאנו קובעים כתחילת החיפוש.
 
-#2. BFS cocok untuk mencari jalur terdekat karena:
-#   - BFS mengunjungi node berdasarkan tingkat kedalaman/jarak dari node awal
-#   - Node yang lebih dekat dengan awal akan dikunjungi lebih dulu
-#   - Ini menjamin bahwa jalur pertama yang ditemukan adalah jalur terpendek
+#2. BFS מתאים למציאת הנתיב הקרוב ביותר מכיוון:
+#   - BFS מבקר בצמתים על סמך עומק/מרחק מהצומת ההתחלתי
+#   - צמתים קרובים יותר להתחלה יבקרו תחילה
+#   - זה מבטיח שהנתיב הראשון שנמצא הוא הנתיב הקצר ביותר
 
-#3. Perbedaan urutan BFS jika struktur graph diubah:
-#   - Jika menambah/mengurangi edge (koneksi), urutan kunjungan akan berbeda
-#   - Jika mengganti node awal, hasilnya akan berbeda
-#   - Tapi prinsipnya tetap sama: level demi level dari node awal 
+#3. הבדלים בסדר BFS אם מבנה הגרף משתנה:
+#   - אם תוסיף/תחסיר קצוות (חיבורים), סדר הביקורים יהיה שונה
+#   - אם תשנה את צומת ההתחלה, התוצאות יהיו שונות
+#   - אבל העיקרון נשאר זהה: רמה אחר רמה מצומת ההתחלה

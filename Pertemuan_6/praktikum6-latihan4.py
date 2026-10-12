@@ -1,5 +1,5 @@
-# Nama : Muhammad Omar Ibrahim
-# NIM : J0403251093
+# שם : Muhammad Omar Ibrahim
+# מספר סטודנט : J0403251093
 
 def merge_sort(data):
     if len(data) <= 1:
@@ -12,15 +12,6 @@ def merge_sort(data):
     return merge(left_sorted, right_sorted)
 
 
-'''
-Soal:
-1. Apa yang dimaksud dengan base case?
-2. Mengapa fungsi memanggil dirinya sendiri?
-3. Apa tujuan fungsi merge()?
-'''
+'שאלה:\n1. מה הכוונה בבסיס מקרה?\n2. למה הפונקציה קוראת לעצמה?\n3. מה המטרה של הפונקציה merge()?'
 
-'''
-Jawaban:
-1. Base case adalah kondisi di mana fungsi berhenti melakukan rekursi, yaitu saat data memiliki 0 atau 1 elemen.
-2. Fungsi memanggil dirinya sendiri untuk membagi data menjadi bagian yang lebih kecil hingga mencapai base case.
-3. Fungsi merge() bertujuan untuk menggabungkan dua bagian data yang sudah terurut menjadi satu bagian yang terurut.'''
+'תשובה:\n1. מקרה בסיס הוא המצב שבו הפונקציה מפסיקה לחזור על עצמה, כלומר כאשר לנתונים יש אלמנט 0 או 1.\n2. הפונקציה קוראת לעצמה לחלק את הנתונים לחלקים קטנים יותר עד שהם מגיעים למקרה הבסיסי.\n3. הפונקציה merge() שואפת לשלב שני חלקים של נתונים ממוינים לחלק ממוין אחד.'
